@@ -2,24 +2,31 @@
 
 <html>
 <head>
-  
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="dndScript.js"></script>
+  <!-- Compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="dndStyle.css">
   <title>D&D 5E</title>
 </head>
 
 <body>
-
-  <div id="top">
-  <img id="logo" src="transparent.png">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-xs-12 header">
+    <img id="logo" src="transparent.png">
   </div>
+</div>
 
-    <div id="leftMenu">
+<div class="row">
+  <div class="col-xs-2">
+
 <!-- -------------------Classes------------------------- -->
-      
-  <p><div class="menuHeader">Classes</div>
-  <div class="hidden">
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#classes">Classes</a></div>
+  <div id="classes" class="panel-collapse collapse">
     <a href="http://homebrewery.naturalcrit.com/print/VJZV4Gteul" target="mainFrame"><span class="subMenu">- Barbarian</span></a>
     <a href="http://homebrewery.naturalcrit.com/print/N1iNhdg_l" target="mainFrame"><span class="subMenu">- Bard</span></a>
     <a href="http://homebrewery.naturalcrit.com/print/V1llojH_l" target="mainFrame"><span class="subMenu">- Cleric</span></a>
@@ -44,82 +51,79 @@
 
     <span class="menuDivider"> Prestige class</span>
     <a href="http://homebrewery.naturalcrit.com/print/S1ZaBsFLWM" target="mainFrame"><span class="subMenu last">Summary</span></a>
-</div>
+  </div>
 
 <!-- -------------------Feats------------------------- -->
-
-  <p><div class="menuHeader">Feats</div>
-  <div class="hidden">
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#feats">Feats</a></div>
+  <div id="feats" class="panel-collapse collapse">
     <a href="http://homebrewery.naturalcrit.com/print/Nktbb1Jtx" target="mainFrame"><span class="subMenu last">- All Feats</span></a>
   </div>
 
 <!-- -------------------Races------------------------- -->
-
-    <p><div class="menuHeader">Races</div>
-    <div class="hidden">
-        <a href="http://homebrewery.naturalcrit.com/print/Vkmnu1JKl" target="mainFrame"><span class="subMenu">- Aasimar</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/E1MPa4gKx" target="mainFrame"><span class="subMenu">- Awakened</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/Vk_r4jZYx" target="mainFrame"><span class="subMenu">- Birdfolk</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/EJlCDHxyKe" target="mainFrame"><span class="subMenu">- Catfolk</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/E1ZllTG1tg" target="mainFrame"><span class="subMenu">- Changeling</span></a> 
-        <a href="http://homebrewery.naturalcrit.com/print/NJQepfJtx" target="mainFrame"><span class="subMenu">- Dhampir</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/4yYFneytx" target="mainFrame"><span class="subMenu">- Dwarf</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/41zCb-kFx" target="mainFrame"><span class="subMenu">- Elf</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/V1wQJ_mlKl" target="mainFrame"><span class="subMenu">- Fetchling</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/Ek4eaGyKg" target="mainFrame"><span class="subMenu">- Floran</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/EyrgpzyYl" target="mainFrame"><span class="subMenu">- Genasi</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/NkQBgaMJFl" target="mainFrame"><span class="subMenu">- Gnome</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/EJX71uXeFe" target="mainFrame"><span class="subMenu">- Goliath</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/VJZ1uQxte" target="mainFrame"><span class="subMenu">- Half-Orc</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/VymkuQgFe" target="mainFrame"><span class="subMenu">- Halfling</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/SyfP6IZVe" target="mainFrame"><span class="subMenu">- Lizardfolk</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/NkEy_mxYl" target="mainFrame"><span class="subMenu">- Ratfolk</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/VJWDpVgte" target="mainFrame"><span class="subMenu">- Selkie</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/VymWvpNxYx" target="mainFrame"><span class="subMenu">- Shifter</span></a>
-        <a href="http://homebrewery.naturalcrit.com/print/V17MDp4xKe" target="mainFrame"><span class="subMenu last">- Tiefling</span></a>
-    </div>
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#races">Races</a></div>
+  <div id="races" class="panel-collapse collapse">
+    <a href="http://homebrewery.naturalcrit.com/print/Vkmnu1JKl" target="mainFrame"><span class="subMenu">- Aasimar</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/E1MPa4gKx" target="mainFrame"><span class="subMenu">- Awakened</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/Vk_r4jZYx" target="mainFrame"><span class="subMenu">- Birdfolk</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/EJlCDHxyKe" target="mainFrame"><span class="subMenu">- Catfolk</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/E1ZllTG1tg" target="mainFrame"><span class="subMenu">- Changeling</span></a> 
+    <a href="http://homebrewery.naturalcrit.com/print/NJQepfJtx" target="mainFrame"><span class="subMenu">- Dhampir</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/4yYFneytx" target="mainFrame"><span class="subMenu">- Dwarf</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/41zCb-kFx" target="mainFrame"><span class="subMenu">- Elf</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/V1wQJ_mlKl" target="mainFrame"><span class="subMenu">- Fetchling</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/Ek4eaGyKg" target="mainFrame"><span class="subMenu">- Floran</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/EyrgpzyYl" target="mainFrame"><span class="subMenu">- Genasi</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/NkQBgaMJFl" target="mainFrame"><span class="subMenu">- Gnome</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/EJX71uXeFe" target="mainFrame"><span class="subMenu">- Goliath</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/VJZ1uQxte" target="mainFrame"><span class="subMenu">- Half-Orc</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/VymkuQgFe" target="mainFrame"><span class="subMenu">- Halfling</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/SyfP6IZVe" target="mainFrame"><span class="subMenu">- Lizardfolk</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/NkEy_mxYl" target="mainFrame"><span class="subMenu">- Ratfolk</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/VJWDpVgte" target="mainFrame"><span class="subMenu">- Selkie</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/VymWvpNxYx" target="mainFrame"><span class="subMenu">- Shifter</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/V17MDp4xKe" target="mainFrame"><span class="subMenu last">- Tiefling</span></a>
+  </div>
       
 <!-- -------------------Spells------------------------- -->
-    <p><div class="menuHeader">Spells</div>
-    <div class="hidden">
-      <a href="http://spells.rigo.nu" target="_blank"><span class="subMenu">- All spells (use this!)</span></a>
-      <a href="https://docs.google.com/spreadsheets/d/1Lsmu72Ssq48d7Df2zqYDFUoHsdsOb7K1L_u1FshKJWc/edit?usp=sharing" target="mainFrame"><span class="subMenu">- All spells (sortable)</span></a>
-      <a href="https://docs.google.com/document/d/1VP9aPuLw76ZxPchMOJ5457flgmevs1G6z8MpNSvrv20/pub" target="mainFrame"><span class="subMenu last">- New spells</span></a>
-    </div>
-
-<!-- -------------------Equipment------------------------- -->
-
-    <p><div class="menuHeader">Equipment</div>
-    <div class="hidden">
-      <a href="https://docs.google.com/document/d/1tqskfu5UBG7etSDtBf_WpMwHKTpOpwMvrQBXHLf36QM/pub" target="mainFrame"><span class="subMenu">- Alchemical</span></a>  
-      <a href="https://docs.google.com/spreadsheets/d/1tMo_M3iqelQ6D77bDMStlcUI-tEU5RLgw09g1ldwAl0/pubhtml" target="mainFrame"><span class="subMenu">- Equipment list</span></a>  
-      <a href="http://homebrewery.naturalcrit.com/print/SyWMs_vWW-" target="mainFrame"><span class="subMenu">- Armor</span></a>
-      <a href="http://homebrewery.naturalcrit.com/print/BymzN5i-gf" target="mainFrame"><span class="subMenu">- Tool proficiencies</span></a>  
-      <a href="http://homebrewery.naturalcrit.com/print/HkcQcSkF" target="mainFrame"><span class="subMenu last">- Weapons</span></a>  
-    </div>
-    
-<!-- -------------------Regler------------------------- -->
-
-    <p><div class="menuHeader">Rules</div>
-    <div class="hidden">
-      <a href="http://homebrewery.naturalcrit.com/print/S1euIYIbz" target="mainFrame"><span class="subMenu last">- Husregler</span></a>
-    </div>
-
-<!-- -------------------Links------------------------- -->
-      
-    <p><div class="menuHeader">Links</div>
-    <div class="hidden">
-      <a href="https://docs.google.com/document/d/1m95QeQMTKkwE71rJCKl9XJ922PGpkpJ78Uz0z208c84/pub" target="mainFrame"><span class="subMenu">- Generators</span></a>
-      <a href="http://forum.vilijam.com" target="mainFrame"><span class="subMenu">- Forumet</span></a>
-      <a href="http://dnd.wizards.com/products/tabletop/players-basic-rules" target="_blank"><span class="subMenu">- Reglerna</span></a>
-      <a href="http://uppsalarollspel.wikispaces.com/" target="mainFrame"><span class="subMenu">- Wikin</span></a>
-      <a href="https://script.google.com/macros/s/AKfycbxoTSHHgnpknABiEUvAv5zVTpU_oYiE9OZilwk5BX2BtLUvu0g/exec" target="mainFrame"><span class="subMenu last">- Statistik</span></a>
-    </div>
-
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#spells">Spells</a></div>
+  <div id="spells" class="panel-collapse collapse">
+    <a href="http://spells.rigo.nu" target="_blank"><span class="subMenu">- All spells (use this!)</span></a>
+    <a href="https://docs.google.com/spreadsheets/d/1Lsmu72Ssq48d7Df2zqYDFUoHsdsOb7K1L_u1FshKJWc/edit?usp=sharing" target="mainFrame"><span class="subMenu last">- All spells (sortable)</span></a>
   </div>
 
+<!-- -------------------Equipment------------------------- -->
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#equipment">Equipment</a></div>
+  <div id="equipment" class="panel-collapse collapse">
+    <a href="https://docs.google.com/document/d/1tqskfu5UBG7etSDtBf_WpMwHKTpOpwMvrQBXHLf36QM/pub" target="mainFrame"><span class="subMenu">- Alchemical</span></a>  
+    <a href="https://docs.google.com/spreadsheets/d/1tMo_M3iqelQ6D77bDMStlcUI-tEU5RLgw09g1ldwAl0/pubhtml" target="mainFrame"><span class="subMenu">- Equipment list</span></a>  
+    <a href="http://homebrewery.naturalcrit.com/print/SyWMs_vWW-" target="mainFrame"><span class="subMenu">- Armor</span></a>
+    <a href="http://homebrewery.naturalcrit.com/print/BymzN5i-gf" target="mainFrame"><span class="subMenu">- Tool proficiencies</span></a>  
+    <a href="http://homebrewery.naturalcrit.com/print/HkcQcSkF" target="mainFrame"><span class="subMenu last">- Weapons</span></a>  
+  </div>
+    
+<!-- -------------------Regler------------------------- -->
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#rules">Rules</a></div>
+  <div id="rules" class="panel-collapse collapse">
+    <a href="http://homebrewery.naturalcrit.com/print/S1euIYIbz" target="mainFrame"><span class="subMenu last">- Husregler</span></a>
+  </div>
+
+<!-- -------------------Links------------------------- -->
+  <p><div class="menuHeader"><a data-toggle="collapse" href="#links">Links</a></div>
+  <div id="links" class="panel-collapse collapse">
+    <a href="https://docs.google.com/document/d/1m95QeQMTKkwE71rJCKl9XJ922PGpkpJ78Uz0z208c84/pub" target="mainFrame"><span class="subMenu">- Generators</span></a>
+    <a href="http://www.vilijam.com/forum/" target="mainFrame"><span class="subMenu">- Forumet</span></a>
+    <a href="http://dnd.wizards.com/products/tabletop/players-basic-rules" target="_blank"><span class="subMenu">- Reglerna</span></a>
+    <a href="http://uppsalarollspel.wikispaces.com/" target="mainFrame"><span class="subMenu">- Wikin</span></a>
+    <a href="https://script.google.com/macros/s/AKfycbxoTSHHgnpknABiEUvAv5zVTpU_oYiE9OZilwk5BX2BtLUvu0g/exec" target="mainFrame"><span class="subMenu last">- Statistik</span></a>
+  </div>
+</div>
+
+<div class="col-xs-10">
   <div id="main">
     <iframe name="mainFrame" seamless></iframe>
   </div>
-  
+</div>
+
+</div>
+</div>  
 </body></html>
