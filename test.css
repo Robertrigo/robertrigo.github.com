@@ -39,6 +39,10 @@
 /* End navbar section  */
 /* ------------------  */
 
+.hidden {
+  display: none;
+}
+
 #logo {
   display: inline-block;
   margin-left: -30px;
@@ -57,14 +61,14 @@ body {
   padding-left: 10px;
   font-family: "Buenard";
   font-size: 13px;
+  padding-right: 20px; 
 }
 
-.borderRight {
+.leftCol {
 /*  border-right: 5px solid transparent;
   padding: 15px;
   border-image: url(flagbanner.png) 30% repeat;
   border-image-repeat: repeat;*/
-  padding-right: 20px; 
   border-right: 1px solid #ccc;
 }
 
@@ -89,13 +93,13 @@ p.phb::first-letter {
 table {
   font-family: ScalySans;
   width: 100%;
-  margin-bottom: 1em;
   font-size: 10pt;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 .classTable {
+  line-height: 1.4;
   margin-top: 25px;
   margin-bottom: 40px;
   border-collapse: separate;
@@ -109,4 +113,16 @@ table {
   border-image-width: 47px;
 }
 
-  table tr:nth-child(odd) td {background-color: #b5e2f1;}  
+.classTable thead th {
+    vertical-align: bottom;
+    padding-bottom: .3em;
+    padding-right: .1em;
+    padding-left: .1em;
+}
+
+.classTable tr:nth-child(odd) td {background-color: #b5e2f1;}  
+
+a {
+    color: #23527c !important;
+    text-decoration: underline;
+}
