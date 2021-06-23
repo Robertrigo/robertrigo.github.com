@@ -21,14 +21,25 @@
     $(".btn-hide").click(function(){
       $(".features").collapse('hide');
     });
-  
+    
+    $(".order-show").click(function(){
+      $(".orderFeatures").collapse('show');
+    });
+    $(".order-hide").click(function(){
+      $(".orderFeatures").collapse('hide');
+    });
+    
     $("#archetypeSelection").change(function(){          
       var value = $("#archetypeSelection option:selected").val();
       var archetype = $("#" + value);
-
-      $(".archetype").slideUp(function() { $(this).addClass("hidden"); });
-      archetype.slideDown().removeClass("hidden");
+      $(".archetype").addClass("hidden");
+      archetype.removeClass("hidden");
     });    
+    
+//    $('[data-toggle="tooltip"]').tooltip();
+    $('#calmEmotions').tooltip({title: "<h4 class='tooltip-header'>Calm Emotions</h4><br><em>2nd-level enchantment</em><br><strong>Casting time:</strong> Action<br><strong>Range:</strong> 60ft<br><strong>Components:</strong> V, S<br><strong>Duration:</strong> Concentration, up to 1 minute<br><p>You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.</p><p>You can suppress any effect causing a target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime.</p><p>Alternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise.", html: true, placement: "auto"}); 
+    
+    
   });
   </script>
   
@@ -358,9 +369,26 @@
     </select>
   </div>
   
-  <div id="0" class="archetype"><h2>Orders</h2></div>
+  <div id="0" class="archetype show"><h2>Orders</h2>
+  You may select among the following orders:
+  <h4>Order of the Blue Rose</h4>
+    The cavaliers of the order of the blue rose dedicate themselves to promoting peace in the lands they roam.
+  <h4>Order of the Dragon</h4>
+    Cavaliers belonging to the order of the dragon dedicate themselves to a group of like-minded individuals, be it a mercenary company or a small band of adventurers. 
+  <h4>Order of the Flame</h4>
+    A cavalier of the order of the flame devotes his life to the pursuit of personal glory.
+  <h4>Order of the Lion</h4>
+    A cavalier who belongs to this order has pledged himself to a sovereign; be it a king, queen, or even the local warlord.
+  <h4>Order of the Scales</h4>
+    Truth is the most sacred of all ideals. The order of the scales cavalier safeguards the truth in all its forms, punishing liars, cheaters, and traitors, and never lying or bending the truth himself. 
+  <h4>Order of the Shield</h4>
+    Cavaliers who join the order of the shield devote their lives to protecting the common folk, from the simple farmer to the honest craftsman. 
+  <h4>Order of the Star</h4>
+    Cavaliers who join the order of the star dedicate themselves to the protection and service of a faith and its members.
+  </div>
     
-  <div id="BlueRose" class="archetype" hidden><h3>Order of the Blue Rose</h3>
+  <div id="BlueRose" class="archetype hidden">
+    <h3>Order of the Blue Rose</h3>
     <p>The cavaliers of the order of the blue rose dedicate themselves to promoting peace in the lands they roam. Skilled warriors and adept diplomats, these cavaliers counsel wisdom, patience, and understanding, but are ever mindful of the need to take up arms to strike down aggressors, tyrants, or evil usurpers. Although they believe wholeheartedly in peace as an aim and a final goal, cavaliers of the blue rose are warriors first, and embrace their role as guardians of those who cannot or will not take up arms to defend themselves.</p>
     
     <h4>Edicts</h4>
@@ -380,22 +408,88 @@
     <p>Additionally, whenever you make a Charisma check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.</p>
     
     <h4>Flat of the Blade</h4>
-    <p>At 7th level, you gain the ability to moderate your attacks in order to take an enemy alive. You take any penalties for attempting to subdue an opponent. Whenever you reduce a creature to 0 hit points with a melee attack, you can use a bonus action to instead leave the creature at 1 hit point.</p>
+    <p>At 7th level, you gain the ability to moderate your attacks in order to take an enemy alive. You take no penalties for attempting to subdue an opponent. Whenever you reduce a creature to 0 hit points with a melee attack, you can use a bonus action to instead leave the creature at 1 hit point.</p>
     <p>The creature is frightened of you for a number of minutes equal to your Charisma modifier. It must also make a Charisma saving throw with a DC 8 + your Charisma modifier + your proficiency modifier. If the creature fails this saving throw, it answers truthfully any questions you ask it and obeys your direct orders while it is frightened by this effect.</p>
     <p>When you make use of this ability on a foe dealing lethal damage, or allowing your allies to kill the target, is considered a violation of your edicts. Once you use this ability, you can't use it again until you finish a short rest.</p>
 
     <h4>Calming Them Down</h4>
-    <p>From 10th level, you can duplicate the effects of the <em>calm emotions</em> spell. Use the result of a Charisma (Persuasion) check as the DC. Once you use this ability, you can't use it again until you finish a long rest.</p>
+    <p>From 10th level, you can duplicate the effects of the <em id="calmEmotions">calm emotions</em> spell. Use the result of a Charisma (Persuasion) check as the DC. Once you use this ability, you can't use it again until you finish a long rest.</p>
 
-    <h4>Challenge</h4>
+    <h4>Inner Peace</h4>
     <p>You have learned that while not all things in the world will go as you wish, you must remain calm and centered.</p>
     <p>Starting at 15th level, when you are reduced to 0 hit points and are not killed outright, you can choose to drop to 1 hit point instead. Once you use this ability, you can't use it again until you finish a long rest.</p>
     
-    <h4>Challenge</h4>
+    <h4>Shield of Blades</h4>
     <p>At 18th level, you gain an expert sense of impending violence around you. When taking the Dodge action, you can extend your protection to those around you. Until the start of your next turn, your adjacent allies bonuses are considered as if they had taken the Dodge action.</p>
     <p>In addition, while dodging, when an attacker that you can see hits you or an adjacent ally with an attack, you can use your reaction to halve the attack's damage.</p>
   </div>  
 
+  <div id="Dragon" class="archetype hidden"><h3>Order of the Dragon</h3>
+    <p>Cavaliers belonging to the order of the dragon dedicate themselves to a group of like-minded individuals, be it a mercenary company or a small band of adventurers. These cavaliers believe in loyalty and friendship, and are willing to lay down their lives to protect their allies.</p>
     
+    <h4>Edicts</h4>
+    Cavaliers of the Dragon share the following edicts.
+    <ul>
+      <li>The cavalier must remain loyal to his allies and must always work to further the aims of the group.</li>
+      <li>He must protect his allies from harm and defend their honor when called into doubt.</li>
+    </ul>      
+      
+    <div class='featureTable pull-right'>
+      <table class='classTable '>
+      <thead><tr>
+        <th style="text-align:center">Level</th>
+        <th style="text-align:left">Features</th>
+      </tr></thead>
+        
+      <tbody><tr>
+        <td style="text-align:center">2nd</td>
+        <td style="text-align:left"><a href="#DragonChallenge" data-toggle="collapse">Challenge</a>, <a href="#DragonBonusProficiency" data-toggle="collapse">Bonus Proficiency</a></td>
+      </tr><tr>
+        <td style="text-align:center">7th</td>
+        <td style="text-align:left">Challenge improvement, <a href="#DragonRallyingCry" data-toggle="collapse">Rallying Cry</a></td>
+      </tr><tr>
+        <td style="text-align:center">10th</td>
+        <td style="text-align:left"><a href="#DragonInspiringSurge" data-toggle="collapse">Inspiring Surge</a></td>
+      </tr><tr>
+        <td style="text-align:center">15th</td>
+        <td style="text-align:left"><a href="#DragonBulwark" data-toggle="collapse">Bulwark</a>, Challenge improvement</td>
+      </tr><tr>
+        <td style="text-align:center">18th</td>
+        <td style="text-align:left">Inspiring Surge (2 allies), <a href="#DragonShieldofBlades" data-toggle="collapse">Shield of Blades</a></td>
+        </tr></tbody>
+      </table>
+
+      <button type="button" class="btn btn-default order-hide pull-right">Hide all</button>
+      <button type="button" class="btn btn-default order-show pull-right">Show order features</button>
+    </div>
+            
+    <div id="DragonChallenge" class="collapse orderFeatures"><h4>Challenge</h4>  
+      <p>Whenever you issue a challenge, your allies receive a +1 bonus on all damage rolls against the target of your challenge as long as it is adjacent to you. This bonus increases by +1 at 10th level and again at 15th level.</p>
+    </div>
+      
+    <div id="DragonBonusProficiency" class="collapse orderFeatures"><h4>Bonus Proficiency</h4>
+      <p>You gain proficiency in the Survival skill.</p>
+      <p>Additionally, whenever you make a Survival check to provide food and water for your allies or to protect your allies from harsh weather, your proficiency bonus is doubled if it applies to the check.</p>
+    </div>
+    
+    <div id="DragonRallyingCry" class="collapse orderFeatures"><h4>Rallying Cry</h4>
+      <p>At 7th level, you learn how to inspire your allies to fight on past their injuries. When you use your Second Wind feature, you can choose up to three creatures who can see and hear you. Each one regains hit points equal to your cavalier level.</p>
+    </div>      
+    
+    <div id="DragonInspiringSurge" class="collapse orderFeatures"><h4>Inspiring Surge</h4>
+      <p>Starting at 10th level, when you use your Action Surge feature, you can choose an ally who can see and hear you. That ally can make one weapon attack as a reaction.</p>
+      <p>Starting at 17th level, you can choose two allies, rather than one.</p>
+    </div>
+    
+    <div id="DragonBulwark" class="collapse orderFeatures"><h4>Bulwark</h4>
+      <p>Beginning at 15th level, you can extend the benefit of your Indomitable feature to an ally. When you decide to use Indomitable to reroll an Intelligence, a Wisdom, or a Charisma saving throw and you aren't incapacitated, you can choose one ally that also failed its saving throw against the same effect. If that ally can see or hear you, it can reroll its saving throw and must use the new roll.</p>
+    </div>
+    
+    <div id="DragonShieldofBlades" class="collapse orderFeatures"><h4>Shield of Blades</h4>
+      <p>At 18th level, you gain an expert sense of impending violence around you. When taking the Dodge action, you can extend your protection to those around you. Until the start of your next turn, your adjacent allies bonuses are considered as if they had taken the Dodge action.</p>
+      <p>In addition, while dodging, when an attacker that you can see hits you or an adjacent ally with an attack, you can use your reaction to halve the attack's damage.</p>
+    </div>      
+  </div>  
+
     
   </div></div>
