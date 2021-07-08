@@ -133,6 +133,12 @@ table {
   width: 50%;
 }
 
+#nextLevel {
+  padding: 5px;
+  background-color: #b5e2f1;
+  border: 1px solid;
+}
+
 a {
     color: #23527c !important;
     text-decoration: underline;
