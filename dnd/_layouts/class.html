@@ -1,0 +1,231 @@
+---
+layout: default
+---
+<head>
+  <script>
+  $(document).ready(function(){
+    // Get url parameters if there. Otherwise c will be undefined
+    var URLparameters = window.location.search.substring(1).split('&');
+    for (var i = 0; i < URLparameters.length; i++) {
+      var parameter = URLparameters[i].split('=');
+      window[parameter[0]] = parameter[1];
+    }
+    // using the following url parameters
+    //console.log(c)
+    //console.log(lvl)
+    
+    // Initialize classTable
+    var classTable = $('.classTable').DataTable({
+      "paging":   false,
+      "info":     false,
+      "searching":     false,
+      "ordering":     false });
+
+    // Adjust content if user want to see specific level
+    if (typeof lvl !== 'undefined') {
+      $(".lvl1").hide();
+      var nextLevelInfo = '<h3>Next level</h3><strong>Hit points:</strong> 1d10 or 6 hp<br><strong>Proficiency modifier:</strong> ';
+      
+      var prof = parseInt(classTable.cell(lvl, 1).data());
+      var previousProf = parseInt(classTable.cell(lvl-1, 1).data());
+      if (prof == previousProf) {
+        nextLevelInfo += 'No change';
+      } else { 
+        nextLevelInfo += '+1';
+      }
+      
+      var features = classTable.cell(lvl, 2).data();
+      $("#nextLevel").html(nextLevelInfo + '<br><strong>New features:</strong> ' + features )
+      $(".nextLevel").show();
+      
+      for (var i = 20; i > lvl-1; i--) { 
+       classTable.rows(i).remove();
+      };
+      classTable.draw()
+    }
+    
+    // For showing&hiding relevant features
+    $(".btn-show").click(function(){
+      $(".features").collapse('show');
+    });
+    $(".btn-hide").click(function(){
+      $(".features").collapse('hide');
+    });
+    
+    $(".order-show").click(function(){
+      $(".orderFeatures").collapse('show');
+    });
+    $(".order-hide").click(function(){
+      $(".orderFeatures").collapse('hide');
+    });
+    
+    // Selecting archetypes to view
+    $("#archetypeSelection").change(function(){          
+      var value = $("#archetypeSelection option:selected").val();
+      var archetype = $("#" + value);
+      $(".archetype").addClass("hidden");
+      archetype.removeClass("hidden");
+    });    
+
+    // Spell tooltip
+    $('#calmEmotions').tooltip({title: "<h4 class='tooltip-header'>Calm Emotions</h4><br><em>2nd-level enchantment</em><br><strong>Casting time:</strong> Action<br><strong>Range:</strong> 60ft<br><strong>Components:</strong> V, S<br><strong>Duration:</strong> Concentration, up to 1 minute<br><p>You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.</p><p>You can suppress any effect causing a target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime.</p><p>Alternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise.", html: true, placement: "auto"}); 
+    
+    
+  });
+  </script>
+</head>
+
+<body>
+<div class="row">
+<div class="col-sm-6 leftCol">
+
+<h1>{{ page.title }}</h1>
+<p class="phb">{{ page.desc | markdownify }}</p>
+
+<div class="row">
+<div class="col-sm-6">
+  
+    <h2>Class Features</h2>
+    As {{ page.def }} {{ page.title }}, you gain the following class features
+
+    <h4>Hit Points</h4>
+    <ul>
+      <li><strong>Hit Dice:</strong> {{ page.HD }} + Constitution modifier</li>
+    </ul>
+
+    <h4>Proficiencies</h4>
+    <ul>
+      <li><strong>Armor:</strong> {{ page.armor }}</li>
+      <li><strong>Weapons:</strong> {{ page.weapons }}</li>
+      <li><strong>Tools:</strong> {{ page.tools }}</li>
+    </ul>
+    <ul>
+      <li><strong>Saving throws:</strong> {{ page.save }}</li>
+      <li><strong>Skills:</strong> {{ page.skills }}</li>
+    </ul>
+
+    <h4>Equipment</h4>
+    You start with the following equipment, in addition to the equipment granted by your background:  
+    {{ page.equipment | markdownify }}
+
+    <h4>Multiclassing</h4>
+    <strong>Prerequisites</strong>. To qualify for multiclassing into the {{ page.title }} class, you must meet these prerequisites: {{ page.multi }}<br>
+    <strong>Proficiencies</strong>. When you multiclass into the {{ page.title }} class, you gain the following proficiencies: {{ page.multiprof }}
+  
+</div><div class='col-sm-6'>
+  
+    <table class='classTable'>
+    <thead><tr>
+      <th style="text-align:center">Level</th>
+      <th style="text-align:center">Prof<br>Mod</th>
+      <th style="text-align:left">Features</th>
+    </tr></thead>
+
+    <tbody>
+      {% for lvl in page.level %}
+        <tr><td style="text-align:center">{{ lvl.lvl }}</td>
+            <td style="text-align:center">+{{ lvl.prof }}</td>
+
+            {% assign features = lvl.features | split: ", " %}
+
+            {% capture featureList %}
+              {% for feature in features %}
+                {% if feature contains "<>" %}
+                  {{ feature | strip_html }}
+                {% else %}
+                  <a href="#{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
+                {% endif %}
+                {% if forloop.last == false %},{% endif %}
+              {% endfor %}
+            {% endcapture %}
+              
+            <td style="text-align:left">{{ featureList }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>  
+  
+</div></div>
+
+<button type="button" class="btn btn-default btn-hide pull-right">Hide all</button>
+<button type="button" class="btn btn-default btn-show pull-right">Show all features</button>
+<hr>
+  
+{% for feature in page.features %}
+  <div id="{{ feature.name | remove: " " }}" class="collapse features"><h3>{{ feature.name }}</h3>
+    {{ feature.desc | markdownify }}
+  </div>
+{% endfor %}
+  
+<!-- Second (right) part of the page -->
+
+{% assign subs = site.subclass | where: "class", page.title %}
+  
+</div><div class="col-sm-6">
+  <div class="form-group pull-right">
+    <select class="form-control" id="archetypeSelection">
+      <option value="0">Summary</option>
+      {% for sub in subs %}
+        <option value="{{ sub.selector }}">{{ sub.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div id="0" class="archetype show"><h2>{{ page.archetype }}</h2>
+    You may select among the following:
+    {% for sub in subs %}
+      <h4>{{ sub.name }}</h4>
+      {{ sub.blurb }}
+    {% endfor %}
+  </div>
+  
+
+  {% for sub in subs %}
+    <div id="{{ sub.selector }}" class="archetype hidden">
+      <h2>{{ sub.name }}</h2>
+      {{ sub.description | markdownify }}
+      
+      <div class='featureTable pull-right'>
+      <table class='classTable '>
+      <thead><tr>
+        <th style="text-align:center">Level</th>
+        <th style="text-align:left">Features</th>
+      </tr></thead>
+        
+      <tbody>
+        {% for lvl in sub.level %}
+        <tr><td style="text-align:center">{{ lvl.lvl }}</td>
+            {% assign features = lvl.features | split: ", " %}
+
+            {% capture featureList %}
+              {% for feature in features %}
+                {% if feature contains "<>" %}
+                  {{ feature | strip_html }}
+                {% else %}
+                  <a href="#{{ sub.selector }}{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
+                {% endif %}
+                {% if forloop.last == false %},{% endif %}
+              {% endfor %}
+            {% endcapture %}
+              
+            <td style="text-align:left">{{ featureList }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+
+      <button type="button" class="btn btn-default order-hide pull-right">Hide all</button>
+      <button type="button" class="btn btn-default order-show pull-right">Show order features</button>
+    </div>
+      
+    {% for feature in sub.features %}
+      <div id="{{ sub.selector }}{{ feature.name | remove: " " }}" class="collapse orderFeatures"><h3>{{ feature.name }}</h3>
+        {{ feature.desc | markdownify}}
+      </div>
+    {% endfor %}
+      
+    </div>          
+  {% endfor %}
+  
+</div></div>
+</body>

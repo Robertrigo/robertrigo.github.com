@@ -1,0 +1,22 @@
+domain: robertrigo.github.io
+url: https://robertrigo.github.io 
+baseurl: /dnd/
+
+collections_dir: dnd
+
+collections:
+  Classes:
+    output: true
+  subclass:
+    output: false
+    
+defaults:
+  - scope:
+      path: ""
+      type: "Classes"
+    values:
+      layout: "class"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

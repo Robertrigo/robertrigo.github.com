@@ -1,0 +1,88 @@
+- name: Home
+  link: /
+  
+- title: Campaign
+  subcategories:
+  - name: Haunted Lands
+    link: 
+  - name: Into the Dark Continent
+    link: 
+    
+- title: Classes
+  subcategories:
+  - name: Barbarian
+    link: /class/barbarian.html
+  - name: Bard
+    link: /class/bard.html
+  - name: Cavalier
+    link: /class/cavalier.html
+  - name: Inquisitor
+    link: /class/inquisitor.html
+    
+- title: Folk
+  subcategories:
+  - name: Dwarf
+    link: 
+  - name: Human
+    link: 
+
+- title: Spells
+  subcategories:
+  - name: Familiars
+    link: 
+  - name: Spell list
+    link: 
+
+- title: Equipment
+  subcategories:
+  - name: Equipment list
+    link: 
+  - name: Alchemical
+    link: 
+  - name: Armor
+    link: 
+  - name: Poison
+    link: 
+  - name: Weapons
+    link: 
+
+- title: Rules
+  subcategories:
+  - name: Abilities & Skills
+    link: 
+  - name: Caravans
+    link: 
+  - name: Feats
+    link: 
+  - name: Herbalism
+    link: 
+  - name: Languages
+    link: 
+  - name: Rules clarifications
+    link: 
+  - name: Tool proficiencies
+    link: 
+
+- title: RP
+  subcategories:
+  - name: Faithless
+    link: 
+  - name: Illiteracy
+    link: 
+  - name: Splinter religion
+    link: 
+
+- title: Links
+  subcategories:
+  - name: Generators
+    link: 
+  - name: Forum
+    link: 
+  - name: Onenote
+    link: 
+  - name: Rules
+    link: 
+  - name: Statistics
+    link: 
+  - name: Krönika
+    link: 

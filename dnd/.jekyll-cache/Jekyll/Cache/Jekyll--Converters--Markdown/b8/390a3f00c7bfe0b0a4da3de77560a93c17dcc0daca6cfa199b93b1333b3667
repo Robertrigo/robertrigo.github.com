@@ -1,0 +1,60 @@
+I"�<h3 id="second-wind">Second Wind</h3>
+<p>From 1st level, you have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain a number of hit points based on your cavalier class  level.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<div style="column-count:2">
+| Level | Hit Points |
+|:-----:|:-----------|
+| 1st | 1d10 + cavalier level
+| 3rd | 2d10 + cavalier level
+| 7th | 3d10 + cavalier level
+  
+```
+```
+
+  | Level | Hit Points |
+|:-----:|:-----------|
+| 10th | 4d10 + cavalier level
+| 15th | 5d10 + cavalier level
+| 18th | 6d10 + cavalier level
+</div>
+
+<p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>
+<div class="pageNumber auto"></div>
+<h3 id="order">Order</h3>
+<p>Beginning at 2nd level, you must pledge yourself to a specific order. The order grants a number of bonuses, class skills and traits, and are detailed under the section “Orders” below. In addition, each order includes a number of edicts that you must follow. If you violate any of these edicts, you loses the benefits from the order’s challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. 
+___
+Members of these orders are not necessarily bound together, but some organizations do exist that are comprised of cavaliers that all belong to one specific order.</p>
+
+<h3 id="action-surge">Action Surge</h3>
+<p>Starting at 3rd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action. Once you use this feature, you must finish a short or long rest before you can use it again. 
+___
+Starting at 17th level, you can use it twice before a rest, but only once on the same turn.</p>
+
+<h3 id="ability-score-improvement">Ability Score Improvement</h3>
+<p>When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>
+
+<h3 id="extra-attack">Extra Attack</h3>
+<p>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+___
+The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.</p>
+
+<h3 id="ferocious-charger">Ferocious Charger</h3>
+<p>At 7th level, you gain additional benefits when you using the cavalry charge maneuver. You can expend up to two superiority dice on the attack, adding both to the damage roll. If you spend two dice, the target has disadvantage on its Strength saving throw and is knocked 15 ft on failure.
+___
+In addition, you gain one additional superiority die.</p>
+
+<p>\page</p>
+
+<h3 id="indomitable">Indomitable</h3>
+<p>Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can’t use this feature again until you finish a long rest. You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.</p>
+
+<h3 id="mounted-superiority">Mounted Superiority</h3>
+<p>At 10th level, your superiority dice turn into d10s. 
+___
+At 18th level, they turn into d12s, and you gain one additional superiority die.</p>
+
+<div style="margin-top:20px"></div>
+
+:ET
