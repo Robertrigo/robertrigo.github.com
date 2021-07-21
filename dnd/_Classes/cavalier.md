@@ -85,6 +85,9 @@ level:
     prof: 6
     features: <>Extra Attack (3)
 
+subclassName: Cavalier Order
+subclassFeature: Order feature
+
 features:
   - name: Challenge
     desc: |

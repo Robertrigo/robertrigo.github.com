@@ -9,7 +9,7 @@ layout: default
 <div class="row">
 <div class="col-sm-6 leftCol">
 
-<h1>{{ page.title }}</h1>
+<h1 id="mainTitle">{{ page.title }}</h1>
 <p class="phb">{{ page.desc | markdownify }}</p>
 
 <div class="row">
@@ -44,7 +44,7 @@ layout: default
   
 </div><div class='col-sm-6'>
   
-    <table class='classTable'>
+    <table class='classTable' id='mainTable'>
     <thead><tr>
       <th style="text-align:center">Level</th>
       <th style="text-align:center">Prof<br>Mod</th>
@@ -114,45 +114,47 @@ layout: default
     <div id="{{ sub.selector }}" class="archetype hidden">
       <h2>{{ sub.name }}</h2>
       {{ sub.description | markdownify }}
-      
+
       <div class='featureTable pull-right'>
-      <table class='classTable '>
-      <thead><tr>
-        <th style="text-align:center">Level</th>
-        <th style="text-align:left">Features</th>
-      </tr></thead>
+        <table class='classTable '>
+        <thead><tr>
+          <th style="text-align:center">Level</th>
+          <th style="text-align:left">Features</th>
+        </tr></thead>
         
-      <tbody>
-        {% for lvl in sub.level %}
-        <tr><td style="text-align:center">{{ lvl.lvl }}</td>
-            {% assign features = lvl.features | split: ", " %}
+        <tbody>
+          {% for lvl in sub.level %}
+          <tr><td style="text-align:center">{{ lvl.lvl }}</td>
+              {% assign features = lvl.features | split: ", " %}
 
-            {% capture featureList %}
-              {% for feature in features %}
-                {% if feature contains "<>" %}
-                  {{ feature | strip_html }}
-                {% else %}
-                  <a href="#{{ sub.selector }}{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
-                {% endif %}
-                {% if forloop.last == false %},{% endif %}
-              {% endfor %}
-            {% endcapture %}
-              
-            <td style="text-align:left">{{ featureList }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-      </table>
+              {% capture featureList %}
+                {% for feature in features %}
+                  {% if feature contains "<>" %}
+                    {{ feature | strip_html }}
+                  {% else %}
+                    <a href="#{{ sub.selector }}{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
+                  {% endif %}
+                  {% if forloop.last == false %},{% endif %}
+                {% endfor %}
+              {% endcapture %}
+                
+              <td style="text-align:left">{{ featureList }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        </table>
 
-      <button type="button" class="btn btn-default order-hide pull-right">Hide all</button>
-      <button type="button" class="btn btn-default order-show pull-right">Show order features</button>
-    </div>
-      
-    {% for feature in sub.features %}
-      <div id="{{ sub.selector }}{{ feature.name | remove: " " }}" class="collapse orderFeatures"><h3>{{ feature.name }}</h3>
-        {{ feature.desc | markdownify}}
+        <button type="button" class="btn btn-default pull-right" onclick="applySub('{{ page.title }}', '{{ sub.name }}', '{{ page.subclassName }}', '{{ page.subclassFeature }}')">Apply to class</button>
+        <button type="button" class="btn btn-default order-hide pull-right">Hide all</button>
+        <button type="button" class="btn btn-default order-show pull-right">Show order features</button>
+
       </div>
-    {% endfor %}
+      
+      {% for feature in sub.features %}
+        <div id="{{ sub.selector }}{{ feature.name | remove: " " }}" class="collapse orderFeatures"><h3>{{ feature.name }}</h3>
+          {{ feature.desc | markdownify}}
+        </div>
+      {% endfor %}
       
     </div>          
   {% endfor %}
