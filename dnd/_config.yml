@@ -2,6 +2,8 @@ domain: robertrigo.github.io
 url: https://robertrigo.github.io 
 baseurl: /dnd
 
+theme: null
+
 sass:
   sass_dir: {{ site.baseurl }}/_sass
   
