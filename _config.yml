@@ -6,6 +6,7 @@ theme: null
 
 sass:
   sass_dir: {{ site.baseurl }}/_sass
+  style: compressed
   
 collections_dir: dnd
 

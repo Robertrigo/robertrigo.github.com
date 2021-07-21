@@ -1,5 +1,5 @@
 body {
-  background-image: url("page-background.jpg");
+  background-image: url("../images/page-background.jpg");
 }
 
 ::-webkit-scrollbar {
