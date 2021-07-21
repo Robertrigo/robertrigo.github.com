@@ -1,11 +1,11 @@
 domain: robertrigo.github.io
 url: https://robertrigo.github.io 
-baseurl: /dnd
+#baseurl: /dnd
 
 theme: null
 
 sass:
-  sass_dir: {{ site.baseurl }}/_sass
+  sass_dir: _sass
   style: compressed
   
 collections_dir: dnd
