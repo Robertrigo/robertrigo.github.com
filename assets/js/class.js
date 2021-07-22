@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
 
     if (typeof lvl !== 'undefined') {
-      $(".lvl1").hide();
+      $('.lvl1').hide();
       var nextLevelInfo = '<h3>Next level</h3><strong>Hit points:</strong> 1d10 or 6 hp<br><strong>Proficiency modifier:</strong> ';
       
       var prof = parseInt(classTable.cell(lvl, 1).data());
@@ -25,8 +25,8 @@ $(document).ready(function () {
       }
       
       var features = classTable.cell(lvl, 2).data();
-      $("#nextLevel").html(nextLevelInfo + '<br><strong>New features:</strong> ' + features )
-      $(".nextLevel").show();
+      $('#nextLevel').html(nextLevelInfo + '<br><strong>New features:</strong> ' + features )
+      $('.nextLevel').show();
       
       for (var i = 20; i > lvl-1; i--) { 
        classTable.rows(i).remove();
@@ -36,32 +36,32 @@ $(document).ready(function () {
     
     // Initialize classTable
     var classTable = $('.classTable').DataTable({
-      "paging": false,
-      "info": false,
-      "searching": false,
-      "ordering": false });
+      'paging': false,
+      'info': false,
+      'searching': false,
+      'ordering': false });
 
     // For showing&hiding relevant features
-    $(".btn-show").click(function(){
-      $(".features").collapse('show');
+    $('.btn-show').click(function(){
+      $('.features').collapse('show');
     });
-    $(".btn-hide").click(function(){
-      $(".features").collapse('hide');
+    $('.btn-hide').click(function(){
+      $('.features').collapse('hide');
     });
     
-    $(".order-show").click(function(){
-      $(".orderFeatures").collapse('show');
+    $('.sub-show').click(function(){
+      $('.subFeatures').collapse('show');
     });
-    $(".order-hide").click(function(){
-      $(".orderFeatures").collapse('hide');
+    $('.sub-hide').click(function(){
+      $('.subFeatures').collapse('hide');
     });
     
     // Selecting archetypes to view
-    $("#archetypeSelection").change(function(){          
-      var value = $("#archetypeSelection option:selected").val();
-      var archetype = $("#" + value);
-      $(".archetype").addClass("hidden");
-      archetype.removeClass("hidden");
+    $('#archetypeSelection').change(function(){          
+      var value = $('#archetypeSelection option:selected').val();
+      var archetype = $('#' + value);
+      $('.archetype').addClass('hidden');
+      archetype.removeClass('hidden');
     });    
 
     // Spell tooltip
@@ -70,10 +70,40 @@ $(document).ready(function () {
     });
 
 // Select archetype and add its features to main table
-function applySub(mainClass, sub, subName, featureName){
-  $("#mainTitle").text(mainClass + ' - ' + sub)
+function applySub(mainClass, subName, selector) {
+  $("#mainTitle").text(mainClass + ' - ' + subName)
+
+  ///////////////////////////////////////////
+  // Add all archetype features to main class
+  var subFeatures = {};
+  $('.' + selector).each(function () {
+    var lvl = $(this).data("lvl")
+    var feature = $(this).clone()
+    feature.removeClass("subFeatures").addClass("features")
+    feature.prop('id','newID')
+    
+    if (subFeatures[lvl]) {
+      subFeatures[lvl].after(feature)
+    } else {
+      subFeatures[lvl] =  feature
+      
+      //////////////////////////////////////////////////
+      // Add archetype feature names to main classTable
+      //  since I'm already looping
+      var tableContent = $('#' + selector + lvl).html( )
+      tableContent = tableContent.replace(selector, 'X')
+      $('#fName' + lvl).html(tableContent)
+    }
+  });
   
-  $('#mainTable td').each(function () {
-      $(this).html($(this).html().replace(featureName, 'The new txt'));
-});
+  for (const [ lvl, content ] of Object.entries(subFeatures)) {
+    $('#f' + lvl).html(content)
+  };
+
+  //////////////////////////////////////////////////
+  // Add archetype feature names to main classTable
+  
+//  $('#mainTable td').each(function () {
+//     $(this).html($(this).html().replace(sub, 'The new txt'));
+//});
 };

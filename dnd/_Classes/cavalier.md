@@ -1,6 +1,6 @@
 ---
 title: Cavalier
-def: a
+def: a cavalier
 archetype: Cavalier Orders
 
 desc: |
@@ -23,66 +23,48 @@ multiprof: Light armor, medium armor, shields, simple weapons, martial weapons
 
 # A '<>' before the name will keep the feature from becoming link
 #   use if the feature is repeated
+# A '<s>' before the name means it is a subclass (archetype) feature
+
 level:
-  - lvl: 1st
-    prof: 2
+  - lvl: 1
     features: Challenge, Mounted Expert, Second Wind
-  - lvl: 2nd
-    prof: 2
-    features: Cavalier Order
-  - lvl: 3rd
-    prof: 2
+  - lvl: 2
+    features: Cavalier Order, <s>Order feature
+  - lvl: 3
     features: Action Surge
-  - lvl: 4th
-    prof: 2
+  - lvl: 4
     features: Ability Score Improvement
-  - lvl: 5th
-    prof: 3
+  - lvl: 5
     features: <>Challenge (2 uses), Extra Attack
-  - lvl: 6th
-    prof: 3
+  - lvl: 6
     features: <>Ability Score Improvement
-  - lvl: 7th
-    prof: 3
-    features: Ferocious Charger, <>Order feature
-  - lvl: 8th
-    prof: 3
+  - lvl: 7
+    features: Ferocious Charger, <s>Order feature
+  - lvl: 8
     features: <>Ability Score Improvement
-  - lvl: 9th
-    prof: 4
+  - lvl: 9
     features: Indomitable
-  - lvl: 10th
-    prof: 4
-    features: Mounted Superiority, <>Order feature
-  - lvl: 11th
-    prof: 4
+  - lvl: 10
+    features: Mounted Superiority, <s>Order feature
+  - lvl: 11
     features: <>Extra Attack (2)
-  - lvl: 12th
-    prof: 4
+  - lvl: 12
     features: <>Ability Score Improvement
-  - lvl: 13th
-    prof: 5
+  - lvl: 13
     features: <>Challenge (3 uses), <>Indomitable (2 uses)
-  - lvl: 14th
-    prof: 5
+  - lvl: 14
     features: <>Ability Score Improvement
-  - lvl: 15th
-    prof: 5
-    features: <>Order feature
-  - lvl: 16th
-    prof: 5
+  - lvl: 15
+    features: <s>Order feature
+  - lvl: 16
     features: <>Ability Score Improvement
-  - lvl: 17th
-    prof: 6
+  - lvl: 17
     features: <>Action Surge (2 uses), <>Indomitable (3 uses)
-  - lvl: 18th
-    prof: 6
-    features: <>Mounted Superiority (d12), <>Order feature
-  - lvl: 19th
-    prof: 6
+  - lvl: 18
+    features: <>Mounted Superiority (d12), <s>Order feature
+  - lvl: 19
     features: <>Ability Score Improvement
-  - lvl: 20th
-    prof: 6
+  - lvl: 20
     features: <>Extra Attack (3)
 
 subclassName: Cavalier Order
@@ -90,6 +72,7 @@ subclassFeature: Order feature
 
 features:
   - name: Challenge
+    lvl: 1
     desc: |
       As a action, you can challenge a foe who can see, hear and understand you. The target must make a Wisdom saving throw against DC 8 + your proficiency bonus + your Charisma modifier. On a failed save, the target has disadvantage on all attack rolls against targets other than you for 1 minute. The effect also ends if you attack any other creature besides the target or if you are rendered unconscious.
 
@@ -98,6 +81,7 @@ features:
       Once you use this feature, you can't use it again until you finish a short or long rest. You can use this feature twice between rests starting at 5th level and three times between rests starting at 13th level.
       
   - name: Mounted Expert
+    lvl: 1
     desc: |
       Your mounted training allows you to effectively control a mount in the chaos of battle. This grants you several benefits.
       * You gain proficiency in Animal Handling.
@@ -123,6 +107,7 @@ features:
       * **Evasive Maneuvers**. If either you or your mount is hit by an attack while you are mounted, you can expend one superiority die as a reaction, adding the number rolled to your or your mount's AC. If the attack still hits, you or your mount have resistance to the attack's damage.
       
   - name: Second Wind
+    lvl: 1
     desc: |
       From 1st level, you have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain a number of hit points based on your cavalier class level.
 
@@ -135,40 +120,63 @@ features:
       Once you use this feature, you must finish a short or long rest before you can use it again.
       
   - name: Cavalier Order
+    lvl: 2
     desc: |
       Beginning at 2nd level, you must pledge yourself to a specific order. The order grants a number of bonuses, class skills and traits. In addition, each order includes a number of edicts that you must follow. If you violate any of these edicts, you loses the benefits from the order's challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. 
       
       Members of these orders are not necessarily bound together, but some organizations do exist that are comprised of cavaliers that all belong to one specific order.
 
+  - name: <>sub feature
+    lvl: 2
+
   - name: Action Surge
+    lvl: 3
     desc: |
       Starting at 3rd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action. Once you use this feature, you must finish a short or long rest before you can use it again. 
       
       Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
       
   - name: Ability Score Improvement
+    lvl: 4
     desc: |
       When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.
       
   - name: Extra Attack
+    lvl: 5
     desc: |
       Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
       
       The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.
       
   - name: Ferocious Charger
+    lvl: 7
     desc: |
       At 7th level, you gain additional benefits when you using the cavalry charge maneuver. You can expend up to two superiority dice on the attack, adding both to the damage roll. If you spend two dice, the target has disadvantage on its Strength saving throw and is knocked 15 ft on failure.
       
       In addition, you gain one additional superiority die.
 
+  - name: <>sub feature
+    lvl: 7
+
   - name: Indomitable
+    lvl: 9
     desc: |
       Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest. You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.
+
+  - name: <>sub feature
+    lvl: 10
       
   - name: Mounted Superiority
+    lvl: 10
     desc: |
       At 10th level, your superiority dice turn into d10s. 
       
       At 18th level, they turn into d12s, and you gain one additional superiority die.
+
+  - name: <>sub feature
+    lvl: 15
+
+  - name: <>sub feature
+    lvl: 18
+
 ---

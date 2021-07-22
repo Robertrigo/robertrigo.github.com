@@ -1,6 +1,6 @@
 ---
 title: Inquisitor
-def: an
+def: an inquisitor
 
 desc: |
   Most people of the world are familiar with clerics; the healers and preachers who spread the word of the Gods. Most also are familiar with paladins, who uphold virtuous principles and protect the meek. Inquisitors, while undoubtedly devoted to their god, is neither of these. Inquisitors are holy hunters; they seek to strike out into the world and unleash the wrath of their god upon those who defy them.
