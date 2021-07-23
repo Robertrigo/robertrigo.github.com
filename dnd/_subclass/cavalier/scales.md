@@ -20,43 +20,54 @@ description: |
 # A '<>' before the name will keep the feature from becoming link
 #   use if the feature is repeated
 level:
-  - lvl: 2nd
+  - lvl: 2
+    order: 2nd
     features: Challenge, Bonus Proficiency
-  - lvl: 7th
+  - lvl: 7
+    order: 7th
     features: Seek Retribution
-  - lvl: 10th
+  - lvl: 10
+    order: 10th
     features: Honorable Combat
-  - lvl: 15th
+  - lvl: 15
+    order: 15th
     features: Sworn Oathkeeper
-  - lvl: 18th
+  - lvl: 18
+    order: 18th
     features: Discern Lies
 
 features:
   - name: Challenge
+    lvl: 2  
     desc: |
       Whenever you issue a challenge, you have advantage on Wisdom saves against all spells and abilities of the target of his challenge, and +1d4 bonus on saves against spells and abilities from other sources.
       
   - name: Bonus Proficiency
+    lvl: 2  
     desc: |
       You gain proficiency in the Insight skill.
 
       Additionally, your proficiency bonus is doubled on checks to determine whether a creature's behavior is being influenced by others, both by enchantment magic as well as non-magical influence.
       
   - name: Seek Retribution
+    lvl: 7 
     desc: |
       From 7th level, after receiving a request for aid from a legal authority or an aggrieved party regarding the breaking of an oath, whenever you encounter the oath-breaking creature, you can choose to vehemently exact retribution.
 
       As a bonus action, you can grant yourself advantage on all attack rolls and weapon damage rolls against the oathbreaking creature until the start of your next turn. Once you use this ability, you can't use it again until you finish a long rest.
 
   - name: Honorable Combat
+    lvl: 10 
     desc: |
       From 10th level, you swear not to use trickery and deception in combat, and you expect this from others as well. When you are targeted by a spell from a creature not challenged by you, you have advantage on any saving throws against that spell. Once you use this ability, you can't use it again until you finish a short rest.
       
   - name: Sworn Oathkeeper
+    lvl: 15 
     desc: |
       From 15th level, you can formally witness an oath or agreement between two creatures. If either creature breaks or reneges on the agreement and you become aware of this, you gain the bonuses from your Seek Retribution ability against that creature at all times. This ability ends when the creature fulfills the conditions of the oath or receives just punishment for breaking the oath. The maximum number of witnessed oaths you can have active at a time is equal to your Charisma modifier (minimum 1).
 
   - name: Discern Lies
+    lvl: 18
     desc: |
       At 18th level, you can tell if people are lying around you. As an action you can create a *zone of truth* around you. The save DC is equal to the result of your Insight skill check. Once you use this ability, you can't use it again until you finish a long rest.
 

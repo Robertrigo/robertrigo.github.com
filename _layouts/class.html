@@ -12,6 +12,8 @@ layout: default
 <h1 id="mainTitle">{{ page.title }}</h1>
 <p class="phb">{{ page.desc | markdownify }}</p>
 
+<div id="subDesc" class="sub"></div>
+
 <div class="row">
 <div class="col-sm-6">
   
@@ -65,9 +67,9 @@ layout: default
               {% if feature contains "<>" %}
                 {{ feature | strip_html }}
               {% elsif feature contains "<s>" %}
-                <div id="fName{{ lvl }}">
+                <span id="fName{{ lvl }}" class="sub">
                   {{ feature | strip_html }}
-                </div>
+                </span>
               {% else %}
                 <a href="#{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
               {% endif %}
@@ -90,7 +92,7 @@ layout: default
   
 {% for feature in page.features %}
   {% if feature.name contains "<>" %}
-    <div id="f{{ feature.lvl }}"></div>
+    <div id="f{{ feature.lvl }}" class="sub"></div>
   {% else %}
     <div id="{{ feature.name | remove: " " }}" class="collapse features"><h3>{{ feature.name }}</h3>
       {{ feature.desc | markdownify }}
@@ -126,8 +128,10 @@ layout: default
 
   {% for sub in subs %}
     <div id="{{ sub.selector }}" class="archetype hidden">
-      <h2>{{ sub.name }}</h2>
-      {{ sub.description | markdownify }}
+      <div id="{{ sub.selector }}Desc">
+        <h2>{{ sub.name }}</h2>
+        {{ sub.description | markdownify }}
+      </div>
 
       <div class='featureTable pull-right'>
         <table class='classTable '>
@@ -153,7 +157,7 @@ layout: default
               {% endcapture %}
                 
               <td style="text-align:left">
-                <span id="{{ sub.selector }}{{ lvl.lvl }}">
+                <span class="{{ sub.selector }}Link" data-lvl="{{ lvl.lvl }}">
                   {{ featureList }} 
                 </span>
               </td>
@@ -162,7 +166,8 @@ layout: default
         </tbody>
         </table>
 
-        <button type="button" class="btn btn-default pull-right" onclick="applySub('{{ page.title }}', '{{ sub.name }}', '{{ sub.selector }}')">Apply to class</button>
+        <button type="button" class="btn btn-default pull-right" onclick="location.href='/Classes/{{ page.title | downcase }}.html?sub={{ sub.selector }}'">Apply to class</button>
+
         <button type="button" class="btn btn-default sub-hide pull-right">Hide all</button>
         <button type="button" class="btn btn-default sub-show pull-right">Show archetype features</button>
 

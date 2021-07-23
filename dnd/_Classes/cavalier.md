@@ -27,9 +27,9 @@ multiprof: Light armor, medium armor, shields, simple weapons, martial weapons
 
 level:
   - lvl: 1
-    features: Challenge, Mounted Expert, Second Wind
+    features: Cavalier Order, Challenge, Mounted Expert
   - lvl: 2
-    features: Cavalier Order, <s>Order feature
+    features: <s>Order feature, Second Wind
   - lvl: 3
     features: Action Surge
   - lvl: 4
@@ -71,6 +71,13 @@ subclassName: Cavalier Order
 subclassFeature: Order feature
 
 features:
+  - name: Cavalier Order
+    lvl: 1
+    desc: |
+      When you select this class, you must pledge yourself to a specific order. The order grants a number of bonuses, class skills and traits. In addition, each order includes a number of edicts that you must follow. If you violate any of these edicts, you loses the benefits from the order's challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. 
+      
+      Members of these orders are not necessarily bound together, but some organizations do exist that are comprised of cavaliers that all belong to one specific order.
+
   - name: Challenge
     lvl: 1
     desc: |
@@ -105,9 +112,12 @@ features:
       * **Cavalry Charge**. When you ride your mount at least 20 feet and make an attack with a lance or spear, you can expend one superiority die to add it to your damage roll. In addition, if the target is Large or smaller, it must succeed at a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone.
       * **Control Mount**. When you make a check to influence or control a creature you are riding, you can expend one superiority die to add it to the check. You apply this bonus after making the check but before learning if it was successful.
       * **Evasive Maneuvers**. If either you or your mount is hit by an attack while you are mounted, you can expend one superiority die as a reaction, adding the number rolled to your or your mount's AC. If the attack still hits, you or your mount have resistance to the attack's damage.
-      
+     
+  - name: <>sub feature
+    lvl: 2
+
   - name: Second Wind
-    lvl: 1
+    lvl: 2
     desc: |
       From 1st level, you have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain a number of hit points based on your cavalier class level.
 
@@ -118,16 +128,6 @@ features:
       | 7th | 3d10 + cavalier level | 18th | 6d10 + cavalier level
 
       Once you use this feature, you must finish a short or long rest before you can use it again.
-      
-  - name: Cavalier Order
-    lvl: 2
-    desc: |
-      Beginning at 2nd level, you must pledge yourself to a specific order. The order grants a number of bonuses, class skills and traits. In addition, each order includes a number of edicts that you must follow. If you violate any of these edicts, you loses the benefits from the order's challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. 
-      
-      Members of these orders are not necessarily bound together, but some organizations do exist that are comprised of cavaliers that all belong to one specific order.
-
-  - name: <>sub feature
-    lvl: 2
 
   - name: Action Surge
     lvl: 3

@@ -9,7 +9,7 @@ $(document).ready(function () {
     
     // Adjust content based on GET parameters in the URL
     if (typeof sub !== 'undefined') {
-      console.log(sub)
+      applySub('Cavalier', sub, sub) 
     }
 
     if (typeof lvl !== 'undefined') {
@@ -70,40 +70,33 @@ $(document).ready(function () {
     });
 
 // Select archetype and add its features to main table
-function applySub(mainClass, subName, selector) {
-  $("#mainTitle").text(mainClass + ' - ' + subName)
+function applySub(mainClass, selector) {
+  ///////////////////////////////////////////
+  // Reset main table and descriptions
+  $('.sub').each(function () {
+       $(this).html('');
+  });
+
+  ///////////////////////////////////////////////
+  // Include archetype description to main class
+  $('#subDesc').html($('#' + selector + 'Desc').html())
 
   ///////////////////////////////////////////
   // Add all archetype features to main class
-  var subFeatures = {};
   $('.' + selector).each(function () {
     var lvl = $(this).data("lvl")
     var feature = $(this).clone()
     feature.removeClass("subFeatures").addClass("features")
-    feature.prop('id','newID')
-    
-    if (subFeatures[lvl]) {
-      subFeatures[lvl].after(feature)
-    } else {
-      subFeatures[lvl] =  feature
-      
-      //////////////////////////////////////////////////
-      // Add archetype feature names to main classTable
-      //  since I'm already looping
-      var tableContent = $('#' + selector + lvl).html( )
-      tableContent = tableContent.replace(selector, 'X')
-      $('#fName' + lvl).html(tableContent)
-    }
+    feature.prop('id',feature.prop('id').replace(selector, 'sub'))
+    $('#f' + lvl).append(feature)
   });
-  
-  for (const [ lvl, content ] of Object.entries(subFeatures)) {
-    $('#f' + lvl).html(content)
-  };
 
   //////////////////////////////////////////////////
   // Add archetype feature names to main classTable
-  
-//  $('#mainTable td').each(function () {
-//     $(this).html($(this).html().replace(sub, 'The new txt'));
-//});
+  $('.' + selector + 'Link').each(function () {
+    var lvl = $(this).data("lvl")
+    var featureNames = $(this).html()
+    featureNames = featureNames.replaceAll(selector, 'sub')
+    $('#fName' + lvl).append(featureNames)
+  });
 };

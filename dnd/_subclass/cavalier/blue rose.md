@@ -16,31 +16,39 @@ description: |
 # A '<>' before the name will keep the feature from becoming link
 #   use if the feature is repeated
 level:
-  - lvl: 2nd
+  - lvl: 2
+    order: 2nd
     features: Challenge, Bonus Proficiency
-  - lvl: 7th
+  - lvl: 7
+    order: 7th
     features: Flat of the Blade
-  - lvl: 10th
+  - lvl: 10
+    order: 10th
     features: Calming Them Down
-  - lvl: 15th
+  - lvl: 15
+    order: 15th
     features: Inner Peace
-  - lvl: 18th
+  - lvl: 18
+    order: 18th
     features: <>Challenge, Shield of Blades
 
 features:
   - name: Challenge
+    lvl: 2  
     desc: |
       Whenever you issue a challenge, you receive a +1d4 bonus on attack rolls made against the target of your challenge, if the target is an intelligent creature to whom you offered the chance to surrender (by taking an action to offer terms).
 
       At 18th level, you have advantage on attack rolls against that target as well.
 
   - name: Bonus Proficiency
+    lvl: 2  
     desc: |
       You gain proficiency in the History skill.
 
       Additionally, whenever you make a Charisma check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.
 
   - name: Flat of the Blade
+    lvl: 7
     desc: |
       At 7th level, you gain the ability to moderate your attacks in order to take an enemy alive. You take any penalties for attempting to subdue an opponent. Whenever you reduce a creature to 0 hit points with a melee attack, you can use a bonus action to instead leave the creature at 1 hit point.
 
@@ -49,16 +57,19 @@ features:
       When you make use of this ability on a foe dealing lethal damage, or allowing your allies to kill the target, is considered a violation of your edicts. Once you use this ability, you can't use it again until you finish a short rest.
 
   - name: Calming Them Down
+    lvl: 10
     desc: |
       From 10th level, you can duplicate the effects of the *calm emotions* spell. Use the result of a Charisma (Persuasion) check as the DC. Once you use this ability, you can't use it again until you finish a long rest.
 
   - name: Inner Peace
+    lvl: 15
     desc: |
       You have learned that while not all things in the world will go as you wish, you must remain calm and centered.
 
       Starting at 15th level, when you are reduced to 0 hit points and are not killed outright, you can choose to drop to 1 hit point instead. Once you use this ability, you can't use it again until you finish a long rest.
 
   - name: Shield of Blades
+    lvl: 18
     desc: |
       At 18th level, you gain an expert sense of impending violence around you. When taking the Dodge action, you can extend your protection to those around you. Until the start of your next turn, your adjacent allies bonuses are considered as if they had taken the Dodge action.
 
