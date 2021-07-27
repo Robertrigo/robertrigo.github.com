@@ -1,0 +1,81 @@
+- name: Heavily Armored
+  id: 1
+  category: Armor
+  pre: Proficiency with medium armor
+  desc: |
+    You have trained to master the use of heavy armor, gaining the following benefits:
+
+    * Increase your Strength score by 1, to a maximum of 20.
+    * You gain proficiency with heavy armor.
+
+- name: Heavy Armor Master
+  id: 2
+  category: Armor
+  pre: Proficiency with heavy armor
+  desc: |
+    You can use your arm or to deflect strikes that would kill others. You gain the following benefits:
+  
+    * Increase your Strength score by 1, to a maximum of 20.
+    * While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from non magical weapons is reduced by 3.
+
+- name: Lightly Armored
+  id: 3
+  category: Armor    
+  desc: |
+   You have trained to master the use of light armor, gaining the following benefits:
+  
+    * Increase your Strength or Dexterity score by 1, to a maximum of 20.
+    * You gain proficiency with light armor.
+
+- name: Medium Armor Master
+  id: 4
+  category: Armor
+  pre: Proficiency with medium armor
+  desc: |
+   You have practiced moving in medium armor to gain the following benefits:
+  
+    * Wearing medium armor doesn’t impose disadvantage on your Dexterity (Stealth) checks.
+    * When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.
+
+- name: Moderately Armored
+  id: 5
+  category: Armor
+  pre: Proficiency with light armor
+  desc: |
+   You have trained to master the use of medium armor and shields, gaining the following benefits:
+  
+    * Increase your Strength or Dexterity score by 1, to a maximum of 20.
+    * You gain proficiency with medium armor and shields.
+
+- name: Shield Master
+  id: 6
+  category: Armor
+  pre: Proficiency with shields
+  desc: |
+   You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:
+  
+    * If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.
+    * If you aren’t incapacitated, you can add your shield’s AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.
+    * If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect.
+
+- name: Acrobat
+  id: 7
+  category: Athletic
+  desc: |
+   You become more nimble, gaining the following benefits:
+  
+    * Increase your Dexterity score by 1, to a maximum of 20.
+    * You gain proficiency in the Acrobatics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.
+    * When you are prone, standing up uses only 5 feet of your movement.
+    * As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn’t cost you extra movement until the end of the current turn.
+
+- name: Brawny
+  id: 8
+  category: Tough
+  desc: |
+   You have undergone extensive physical training, gaining the following benefits:
+  
+    * Increase your Strength score by 1, to a maximum of 20.
+    * You gain proficiency in the Athletics skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.
+    * You count as if you were one size larger for the purpose of determining your carrying capacity.
+    * You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet.

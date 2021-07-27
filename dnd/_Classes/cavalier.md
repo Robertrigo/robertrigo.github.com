@@ -24,6 +24,8 @@ multiprof: Light armor, medium armor, shields, simple weapons, martial weapons
 # A '<>' before the name will keep the feature from becoming link
 #   use if the feature is repeated
 # A '<s>' before the name means it is a subclass (archetype) feature
+# A '<a>' before the name means it is an ability score improvement (or 
+#   feat)
 
 level:
   - lvl: 1
@@ -33,15 +35,15 @@ level:
   - lvl: 3
     features: Action Surge
   - lvl: 4
-    features: Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 5
     features: <>Challenge (2 uses), Extra Attack
   - lvl: 6
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 7
     features: Ferocious Charger, <s>Order feature
   - lvl: 8
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 9
     features: Indomitable
   - lvl: 10
@@ -49,26 +51,23 @@ level:
   - lvl: 11
     features: <>Extra Attack (2)
   - lvl: 12
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 13
     features: <>Challenge (3 uses), <>Indomitable (2 uses)
   - lvl: 14
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 15
     features: <s>Order feature
   - lvl: 16
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 17
     features: <>Action Surge (2 uses), <>Indomitable (3 uses)
   - lvl: 18
     features: <>Mounted Superiority (d12), <s>Order feature
   - lvl: 19
-    features: <>Ability Score Improvement
+    features: <a>Ability Score Improvement
   - lvl: 20
     features: <>Extra Attack (3)
-
-subclassName: Cavalier Order
-subclassFeature: Order feature
 
 features:
   - name: Cavalier Order
@@ -113,7 +112,7 @@ features:
       * **Control Mount**. When you make a check to influence or control a creature you are riding, you can expend one superiority die to add it to the check. You apply this bonus after making the check but before learning if it was successful.
       * **Evasive Maneuvers**. If either you or your mount is hit by an attack while you are mounted, you can expend one superiority die as a reaction, adding the number rolled to your or your mount's AC. If the attack still hits, you or your mount have resistance to the attack's damage.
      
-  - name: <>sub feature
+  - name: <s>sub feature
     lvl: 2
 
   - name: Second Wind
@@ -136,18 +135,19 @@ features:
       
       Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
       
-  - name: Ability Score Improvement
+  - name: <a>asi
     lvl: 4
-    desc: |
-      When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.
-      
+     
   - name: Extra Attack
     lvl: 5
     desc: |
       Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
       
       The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.
-      
+
+  - name: <a>asi
+    lvl: 6
+
   - name: Ferocious Charger
     lvl: 7
     desc: |
@@ -155,15 +155,18 @@ features:
       
       In addition, you gain one additional superiority die.
 
-  - name: <>sub feature
+  - name: <s>sub feature
     lvl: 7
+
+  - name: <a>asi
+    lvl: 8
 
   - name: Indomitable
     lvl: 9
     desc: |
       Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest. You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.
 
-  - name: <>sub feature
+  - name: <s>sub feature
     lvl: 10
       
   - name: Mounted Superiority
@@ -173,10 +176,22 @@ features:
       
       At 18th level, they turn into d12s, and you gain one additional superiority die.
 
-  - name: <>sub feature
+  - name: <a>asi
+    lvl: 12
+
+  - name: <a>asi
+    lvl: 14
+
+  - name: <s>sub feature
     lvl: 15
 
-  - name: <>sub feature
+  - name: <a>asi
+    lvl: 16
+
+  - name: <s>sub feature
     lvl: 18
+
+  - name: <a>asi
+    lvl: 19
 
 ---

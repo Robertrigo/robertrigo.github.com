@@ -70,6 +70,10 @@ layout: default
                 <span id="fName{{ lvl }}" class="sub">
                   {{ feature | strip_html }}
                 </span>
+              {% elsif feature contains "<a>" %}
+                  <span class="asi">
+                  Ability score improvement
+                </span>
               {% else %}
                 <a href="#{{ feature | remove: " " }}" data-toggle="collapse">{{ feature }}</a>
               {% endif %}
@@ -91,9 +95,11 @@ layout: default
 <hr>
   
 {% for feature in page.features %}
-  {% if feature.name contains "<>" %}
+  {% if feature.name contains "<s>" %}
     <div id="f{{ feature.lvl }}" class="sub"></div>
-  {% else %}
+  {% elsif feature.name contains "<a>" %}
+    <div id="f{{ feature.lvl }}" class="asiDesc"></div>
+{% else %}
     <div id="{{ feature.name | remove: " " }}" class="collapse features"><h3>{{ feature.name }}</h3>
       {{ feature.desc | markdownify }}
     </div>
@@ -111,21 +117,60 @@ layout: default
     <label for="archetypeSelection">Class choices</label>
     <select class="form-control" id="archetypeSelection">
       <option value="0">Summary</option>
+      <option value="feats">Feats</option>
       {% for sub in subs %}
         <option value="{{ sub.selector }}">{{ sub.name }}</option>
       {% endfor %}
     </select>
   </div>
   
+  <!-- This part is shown when class is first selected -->
   <div id="0" class="archetype show"><h2>{{ page.archetype }}</h2>
-    You may select among the following:
+    This class has the following archetypes:
     {% for sub in subs %}
       <h4>{{ sub.name }}</h4>
       {{ sub.blurb }}
     {% endfor %}
   </div>
-  
 
+
+  <!-- This part shows all feats -->
+  <div id="feats" class="archetype hidden">
+    <h2>Feats</h2>
+    A feat represents a talent or an area of expertise that gives a character special capabilities. It embodies training, experience, and abilities beyond what a class provides. At certain levels, your class gives you the Ability Score Improvement feature. You can forgo taking that feature to take a feat of your choice instead. You can take each feat only once, unless the feat's description says otherwise.
+    <p>
+    You must meet any prerequisite specified in a feat to take that feat. If you ever lose a feat's prerequisite, you can't use that feat until you regain the prerequisite.
+
+    <button type="button" class="btn btn-default pull-right" id="deselect" >Deselect all</button>
+
+    <button type="button" class="btn btn-default pull-right" id="applyFeats">Apply</button>
+
+    <table id='featTable' class="table table-bordered" style="width:100%">
+      <thead><tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+      </tr></thead>
+      <tbody>
+  
+        {% for feat in site.data.feat %}
+          <tr id="{{ feat.id }}">
+            <td>{{ feat.name }}</td>
+            <td>{{ feat.category }}</td>
+            <td>
+              {% if feat.pre %}
+              <strong>Prerequisites:</strong>
+              {{ feat.pre }}
+            {% endif %}
+              {{ feat.desc | markdownify  }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>  
+  
+    </div>
+
+  <!-- This part shows all archetypes -->
   {% for sub in subs %}
     <div id="{{ sub.selector }}" class="archetype hidden">
       <div id="{{ sub.selector }}Desc">

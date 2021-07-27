@@ -9,7 +9,7 @@ $(document).ready(function () {
     
     // Adjust content based on GET parameters in the URL
     if (typeof sub !== 'undefined') {
-      applySub('Cavalier', sub, sub) 
+      applySub(sub) 
     }
 
     if (typeof lvl !== 'undefined') {
@@ -34,6 +34,35 @@ $(document).ready(function () {
       classTable.draw()
     }
     
+    /////////////////////////
+    // featTable
+    var featTable = $('#featTable').DataTable({
+      'paging': false,
+      'info': false});
+
+    $('#featTable tbody').on( 'click', 'tr', function () {
+      $(this).toggleClass('info');
+    });
+
+    $('#deselect').click( function () {
+      featTable.rows('.info').nodes().to$().removeClass('info');
+    });
+
+    $('#applyFeats').click( function () {
+      var selectedRows = featTable.rows('.info').data();
+      if (selectedRows.length == 0) {
+        alert('No feats selected!');
+      } else {
+        var featList = []
+        for (var i=0 ; i < selectedRows.length ; i++) {
+          featList.push({[selectedRows[i][0]]: selectedRows[i][2]})
+        };
+      }
+      applyFeat(featList);
+   });
+    
+        
+    /////////////////////////
     // Initialize classTable
     var classTable = $('.classTable').DataTable({
       'paging': false,
@@ -41,6 +70,7 @@ $(document).ready(function () {
       'searching': false,
       'ordering': false });
 
+    //////////////////////////////////////////
     // For showing&hiding relevant features
     $('.btn-show').click(function(){
       $('.features').collapse('show');
@@ -56,12 +86,14 @@ $(document).ready(function () {
       $('.subFeatures').collapse('hide');
     });
     
+    //////////////////////////////////
     // Selecting archetypes to view
     $('#archetypeSelection').change(function(){          
       var value = $('#archetypeSelection option:selected').val();
       var archetype = $('#' + value);
       $('.archetype').addClass('hidden');
       archetype.removeClass('hidden');
+      featTable.rows('.info').nodes().to$().removeClass('info');
     });    
 
     // Spell tooltip
@@ -69,8 +101,9 @@ $(document).ready(function () {
     
     });
 
+///////////////////////////////////////////////////////
 // Select archetype and add its features to main table
-function applySub(mainClass, selector) {
+function applySub(selector) {
   ///////////////////////////////////////////
   // Reset main table and descriptions
   $('.sub').each(function () {
@@ -99,4 +132,30 @@ function applySub(mainClass, selector) {
     featureNames = featureNames.replaceAll(selector, 'sub')
     $('#fName' + lvl).append(featureNames)
   });
+};
+
+///////////////////////////////////////////////////////
+// Select feats and add to main table
+
+function applyFeat(featList) {
+  ///////////////////////////////////////////
+  // Reset main table and descriptions
+  $('.asi').each(function () {
+    $(this).html('');
+  });
+  $('.asiDesc').each(function () {
+    $(this).html('');
+  });
+
+  ///////////////////////////////////////////
+  // Add all archetype features to main class
+  $('.asi').each(function () {
+    if (featList.length == 0) {
+      return false;
+    } else {
+      var nextFeat = featList.shift();
+      $(this).html(Object.keys(nextFeat));
+    }
+  });
+
 };
