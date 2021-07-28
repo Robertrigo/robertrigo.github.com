@@ -1,5 +1,66 @@
 
 $(document).ready(function () {
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
+    // Initialize featTable and its functions
+    var featTable = $('#featTable').DataTable({
+      'paging': false,
+      'info': false});
+
+    $('#featTable tbody').on( 'click', 'tr', function () {
+      $(this).toggleClass('info');
+    });
+
+    $('#deselect').click( function () {
+      featTable.rows('.info').nodes().to$().removeClass('info');
+    });
+
+    $('.applySub').click( function () {
+      var sub = $(this).attr("id");
+      var currentURL = window.location.href;
+      if (currentURL.includes('sub=')) {
+        var newURL = currentURL.replace(/sub=\w+/, 'sub=' + sub);
+      } else if (currentURL.includes('?')) {
+        var newURL = currentURL + '&sub=' + sub;
+      } else {
+        var newURL = currentURL + '?sub=' + sub;
+      };
+      window.location.href = newURL;
+   });
+    
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
+    // Initialize classTable and its functions
+    var classTable = $('.classTable').DataTable({
+      'paging': false,
+      'info': false,
+      'searching': false,
+      'ordering': false });
+
+      $('#applyFeats').click( function () {
+        var selectedRows = featTable.rows('.info').data();
+        if (selectedRows.length == 0) {
+          alert('No feats selected!');
+        } else {
+          var featString = 'feat='
+          for (var i=0 ; i < selectedRows.length ; i++) {
+            featString += selectedRows[i].DT_RowId;
+          };
+  
+          var currentURL = window.location.href;
+          if (currentURL.includes('feat=')) {
+            var newURL = currentURL.replace(/feat=\w+/, featString);
+          } else if (currentURL.includes('?')) {
+            var newURL = currentURL + '&' + featString;
+          } else {
+            var newURL = currentURL + '?' + featString;
+          }
+          window.location.href = newURL;
+        }
+     });
+  
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
     // Get url parameters if there. Otherwise they will be undefined
     var URLparameters = window.location.search.substring(1).split('&');
     for (var i = 0; i < URLparameters.length; i++) {
@@ -9,7 +70,12 @@ $(document).ready(function () {
     
     // Adjust content based on GET parameters in the URL
     if (typeof sub !== 'undefined') {
-      applySub(sub) 
+      applySub(sub)
+    }
+
+    if (typeof feat !== 'undefined') {
+      var featList = feat.match(/(.{1,2})/g);
+      applyFeat(featList);
     }
 
     if (typeof lvl !== 'undefined') {
@@ -34,42 +100,7 @@ $(document).ready(function () {
       classTable.draw()
     }
     
-    /////////////////////////
-    // featTable
-    var featTable = $('#featTable').DataTable({
-      'paging': false,
-      'info': false});
-
-    $('#featTable tbody').on( 'click', 'tr', function () {
-      $(this).toggleClass('info');
-    });
-
-    $('#deselect').click( function () {
-      featTable.rows('.info').nodes().to$().removeClass('info');
-    });
-
-    $('#applyFeats').click( function () {
-      var selectedRows = featTable.rows('.info').data();
-      if (selectedRows.length == 0) {
-        alert('No feats selected!');
-      } else {
-        var featList = []
-        for (var i=0 ; i < selectedRows.length ; i++) {
-          featList.push({[selectedRows[i][0]]: selectedRows[i][2]})
-        };
-      }
-      applyFeat(featList);
-   });
-    
-        
-    /////////////////////////
-    // Initialize classTable
-    var classTable = $('.classTable').DataTable({
-      'paging': false,
-      'info': false,
-      'searching': false,
-      'ordering': false });
-
+    //////////////////////////////////////////
     //////////////////////////////////////////
     // For showing&hiding relevant features
     $('.btn-show').click(function(){
@@ -143,18 +174,30 @@ function applyFeat(featList) {
   $('.asi').each(function () {
     $(this).html('');
   });
+
   $('.asiDesc').each(function () {
     $(this).html('');
   });
 
   ///////////////////////////////////////////
   // Add all archetype features to main class
+  var featTable = $('#featTable').DataTable()
+
   $('.asi').each(function () {
+//  for (var i=0 ; i < $('.asi').length ; i++) {
     if (featList.length == 0) {
       return false;
     } else {
-      var nextFeat = featList.shift();
-      $(this).html(Object.keys(nextFeat));
+      var lvl = $(this).data("lvl")
+      var featRow = featTable.row('#' + featList.shift())[0];
+      var featName = featTable.cell(featRow, 0).data();
+      var featNameHtml = '<a href="#asi' + lvl + '" data-toggle="collapse">' + featName + '</a>'
+      
+      $(this).html(featNameHtml);
+
+      var featDesc = featTable.cell(featRow, 2).data();
+      featDesc = '<h3>' + featName + '</h3>' + featDesc
+      $('#asi' + lvl).html(featDesc);
     }
   });
 

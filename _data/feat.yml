@@ -1,5 +1,5 @@
 - name: Heavily Armored
-  id: 1
+  id: aa
   category: Armor
   pre: Proficiency with medium armor
   desc: |
@@ -9,7 +9,7 @@
     * You gain proficiency with heavy armor.
 
 - name: Heavy Armor Master
-  id: 2
+  id: ab
   category: Armor
   pre: Proficiency with heavy armor
   desc: |
@@ -19,7 +19,7 @@
     * While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from non magical weapons is reduced by 3.
 
 - name: Lightly Armored
-  id: 3
+  id: ac
   category: Armor    
   desc: |
    You have trained to master the use of light armor, gaining the following benefits:
@@ -28,7 +28,7 @@
     * You gain proficiency with light armor.
 
 - name: Medium Armor Master
-  id: 4
+  id: ad
   category: Armor
   pre: Proficiency with medium armor
   desc: |
@@ -38,7 +38,7 @@
     * When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.
 
 - name: Moderately Armored
-  id: 5
+  id: ae
   category: Armor
   pre: Proficiency with light armor
   desc: |
@@ -48,7 +48,7 @@
     * You gain proficiency with medium armor and shields.
 
 - name: Shield Master
-  id: 6
+  id: af
   category: Armor
   pre: Proficiency with shields
   desc: |
@@ -59,7 +59,7 @@
     * If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect.
 
 - name: Acrobat
-  id: 7
+  id: ag
   category: Athletic
   desc: |
    You become more nimble, gaining the following benefits:
@@ -70,7 +70,7 @@
     * As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn’t cost you extra movement until the end of the current turn.
 
 - name: Brawny
-  id: 8
+  id: ah
   category: Tough
   desc: |
    You have undergone extensive physical training, gaining the following benefits:
