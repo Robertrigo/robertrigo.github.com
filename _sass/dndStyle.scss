@@ -21,6 +21,10 @@ a:focus, a:hover {
   color: white;
 }
 
+button {
+  margin: 2px;
+}
+
 iframe {
   border: 0;
   width: 100%;
@@ -118,6 +122,10 @@ table {
   border-right: 1px solid #ccc;
 }
 
+.spellName {
+  font-style: italic;
+}
+
 .subMenu {
   cursor: pointer;
   display: flex;
@@ -148,6 +156,14 @@ table {
   padding: 5px;
   background-color: #b5e2f1;
   border: 1px solid;
+}
+
+
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
 }
 
 /* Tooltip */

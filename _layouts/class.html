@@ -101,7 +101,51 @@ layout: default
     <div id="asi{{ feature.lvl }}" class="asiDesc collapse features"></div>
 {% else %}
     <div id="{{ feature.name | remove: " " }}" class="collapse features"><h3>{{ feature.name }}</h3>
-      {{ feature.desc | markdownify }}
+
+    {% assign featureDesc = feature.desc %}
+    
+    <!-- Find all spells tags and create the correct tooltips -->
+    {% if feature.desc contains "<spell>" %}
+      {% assign splitDesc = feature.desc | split: '<spell>' %}
+      {% for spellName in splitDesc %}
+
+      <!-- split results in every second element to be a spellname -->
+        {% assign mod2 = forloop.index | modulo: 2 %}
+        {% if mod2 == 0 %}
+          {% assign spell = site.data.spells | where: 'Name', spellName %}
+            
+          {% assign tooltip = "<h4 class='tooltip-header'>" 
+            | append: spell[0].Name 
+            | append: "</h4><br><em>Level " 
+            | append: spell[0].Level 
+            | append: " " 
+            | append: spell[0].School
+            | append: "</em><br><strong>Casting time:</strong> "
+            | append: spell[0].Casting_Time
+            | append: "<br><strong>Target:</strong> "
+            | append: spell[0].Target
+            | append: "<br><strong>Range:</strong> "
+            | append: spell[0].Range
+            | append: "<br><strong>Components:</strong> "
+            | append: spell[0].Components
+            | append: "<br><strong>Duration:</strong> "
+            | append: spell[0].Duration
+            | append: "<br>"
+            | append: spell[0].Web_Description %}
+
+          {% assign tooltip = '<a data-toggle="tooltip" title="'
+            | append: tooltip
+            | append: '" data-html=true data-placement="auto"><span class="spellName">'
+            | append: spell[0].Name
+            | append: '</span></a>' %}
+
+          {% assign featureDesc = featureDesc | replace: spell[0].Name, tooltip %}
+
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {{ featureDesc | markdownify }}
     </div>
   {% endif %}
 {% endfor %}
@@ -142,8 +186,8 @@ layout: default
     You must meet any prerequisite specified in a feat to take that feat. If you ever lose a feat's prerequisite, you can't use that feat until you regain the prerequisite.
 
     <button type="button" class="btn btn-default pull-right" id="deselect" >Deselect all</button>
-
-    <button type="button" class="btn btn-default pull-right" id="applyFeats">Apply</button>
+    <button type="button" class="btn btn-default pull-right" id="addFeats">Add selected</button>
+    <button type="button" class="btn btn-default pull-right" id="applyFeats">Use only selected</button>
 
     <table id='featTable' class="table table-bordered" style="width:100%">
       <thead><tr>
@@ -155,9 +199,9 @@ layout: default
   
         {% for feat in site.data.feat %}
           <tr id="{{ feat.id }}">
-            <td>{{ feat.name }}</td>
+            <td class="featName">{{ feat.name }}</td>
             <td>{{ feat.category }}</td>
-            <td>
+            <td class="line-clamp featDesc">
               {% if feat.pre %}
               <strong>Prerequisites:</strong>
               {{ feat.pre }}
@@ -212,7 +256,6 @@ layout: default
         </table>
 
         <button type="button" class="btn btn-default pull-right applySub" id="{{ sub.selector }}">Apply to class</button>
-
         <button type="button" class="btn btn-default sub-hide pull-right">Hide all</button>
         <button type="button" class="btn btn-default sub-show pull-right">Show archetype features</button>
 
@@ -220,7 +263,51 @@ layout: default
       
       {% for feature in sub.features %}
         <div id="{{ sub.selector }}{{ feature.name | remove: " " }}" class="collapse subFeatures {{ sub.selector }}" data-lvl="{{ feature.lvl }}"><h3>{{ feature.name }}</h3>
-          {{ feature.desc | markdownify}}
+
+        {% assign featureDesc = feature.desc %}
+      
+          <!-- Find all spells tags and create the correct tooltips -->
+          {% if feature.desc contains "<spell>" %}
+            {% assign splitDesc = feature.desc | split: '<spell>' %}
+            {% for spellName in splitDesc %}
+
+            <!-- split results in every second element to be a spellname -->
+              {% assign mod2 = forloop.index | modulo: 2 %}
+              {% if mod2 == 0 %}
+                {% assign spell = site.data.spells | where: 'Name', spellName %}
+                  
+                {% assign tooltip = "<h4 class='tooltip-header'>" 
+                  | append: spell[0].Name 
+                  | append: "</h4><br><em>Level " 
+                  | append: spell[0].Level 
+                  | append: " " 
+                  | append: spell[0].School
+                  | append: "</em><br><strong>Casting time:</strong> "
+                  | append: spell[0].Casting_Time
+                  | append: "<br><strong>Target:</strong> "
+                  | append: spell[0].Target
+                  | append: "<br><strong>Range:</strong> "
+                  | append: spell[0].Range
+                  | append: "<br><strong>Components:</strong> "
+                  | append: spell[0].Components
+                  | append: "<br><strong>Duration:</strong> "
+                  | append: spell[0].Duration
+                  | append: "<br>"
+                  | append: spell[0].Web_Description %}
+
+                {% assign tooltip = '<a data-toggle="tooltip" title="'
+                  | append: tooltip
+                  | append: '" data-html=true data-placement="auto"><span class="spellName">'
+                  | append: spell[0].Name
+                  | append: '</span></a>' %}
+
+                {% assign featureDesc = featureDesc | replace: spell[0].Name, tooltip %}
+
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {{ featureDesc | markdownify }}
         </div>
       {% endfor %}
       

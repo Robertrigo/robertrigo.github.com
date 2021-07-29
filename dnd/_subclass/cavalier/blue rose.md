@@ -45,7 +45,7 @@ features:
     desc: |
       You gain proficiency in the History skill.
 
-      Additionally, whenever you make a Charisma check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.
+      Additionally, whenever you make a *Charisma* check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.
 
   - name: Flat of the Blade
     lvl: 7
@@ -59,7 +59,7 @@ features:
   - name: Calming Them Down
     lvl: 10
     desc: |
-      From 10th level, you can duplicate the effects of the *calm emotions* spell. Use the result of a Charisma (Persuasion) check as the DC. Once you use this ability, you can't use it again until you finish a long rest.
+      From 10th level, you can duplicate the effects of the <spell>Calm Emotions<spell> spell. Use the result of a Charisma (Persuasion) check as the DC. Once you use this ability, you can't use it again until you finish a long rest.
 
   - name: Inner Peace
     lvl: 15
