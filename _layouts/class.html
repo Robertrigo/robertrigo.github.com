@@ -42,7 +42,7 @@ layout: default
 
     <h4>Multiclassing</h4>
     <strong>Prerequisites</strong>. To qualify for multiclassing into the {{ page.title }} class, you must meet these prerequisites: {{ page.multi }}<br>
-    <strong>Proficiencies</strong>. When you multiclass into the {{ page.title }} class, you gain the following proficiencies: {{ page.multiprof }}
+    <strong>Proficiencies</strong>. When you multiclass into this class, you gain the following proficiencies: {{ page.multiprof }}
   
 </div><div class='col-sm-6'>
   
@@ -103,13 +103,13 @@ layout: default
     <div id="{{ feature.name | remove: " " }}" class="collapse features"><h3>{{ feature.name }}</h3>
 
     {% assign featureDesc = feature.desc %}
-    
+
     <!-- Find all spells tags and create the correct tooltips -->
     {% if feature.desc contains "<spell>" %}
       {% assign splitDesc = feature.desc | split: '<spell>' %}
       {% for spellName in splitDesc %}
 
-      <!-- split results in every second element to be a spellname -->
+      <!-- split results in every second element to being a spellname -->
         {% assign mod2 = forloop.index | modulo: 2 %}
         {% if mod2 == 0 %}
           {% assign spell = site.data.spells | where: 'Name', spellName %}
@@ -271,7 +271,7 @@ layout: default
             {% assign splitDesc = feature.desc | split: '<spell>' %}
             {% for spellName in splitDesc %}
 
-            <!-- split results in every second element to be a spellname -->
+            <!-- split results in every second element being a spellname -->
               {% assign mod2 = forloop.index | modulo: 2 %}
               {% if mod2 == 0 %}
                 {% assign spell = site.data.spells | where: 'Name', spellName %}
@@ -297,9 +297,9 @@ layout: default
 
                 {% assign tooltip = '<a data-toggle="tooltip" title="'
                   | append: tooltip
-                  | append: '" data-html=true data-placement="auto"><span class="spellName">'
+                  | append: '" data-html=true data-placement="auto" class="spellName">'
                   | append: spell[0].Name
-                  | append: '</span></a>' %}
+                  | append: '</a>' %}
 
                 {% assign featureDesc = featureDesc | replace: spell[0].Name, tooltip %}
 

@@ -69,6 +69,8 @@ level:
   - lvl: 20
     features: <>Extra Attack (3)
 
+# In feature desc, you can use a spell name between 2 <spell> tags, 
+#   to create a spell tooltip
 features:
   - name: Cavalier Order
     lvl: 1

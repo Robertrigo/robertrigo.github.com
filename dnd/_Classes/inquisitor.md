@@ -1,6 +1,7 @@
 ---
 title: Inquisitor
 def: an inquisitor
+archetype: Divine Missions
 
 desc: |
   Most people of the world are familiar with clerics; the healers and preachers who spread the word of the Gods. Most also are familiar with paladins, who uphold virtuous principles and protect the meek. Inquisitors, while undoubtedly devoted to their god, is neither of these. Inquisitors are holy hunters; they seek to strike out into the world and unleash the wrath of their god upon those who defy them.
@@ -16,6 +17,22 @@ weapons: Simple melee weapons, martial weapons
 tools: Choose one from Interrogator's tools or Thieves' tools
 save: Wisdom, Charisma
 skills: Choose three skills from Arcana, Deception, Insight, Intimidation, Investigation, Perception, Religion and Stealth
+
+equipment: |
+  - *(a)* any martial weapon or *(b)* two simple weapons
+  - *(a)* a shield or *(b)* a hand crossbow and 20 bolts
+  - *(a)* interrogator's tools or *(b)* thieves' tools
+  - *(a)* a explorer's pack or *(b)* a priest's pack
+  - a leather armor and a holy symbol
+
+multi: Wisdom 13
+multiprof: Light armor, shield, one skill from the Inquisitor skill list
+
+# A '<>' before the name will keep the feature from becoming link
+#   use if the feature is repeated
+# A '<s>' before the name means it is a subclass (archetype) feature
+# A '<a>' before the name means it is an ability score improvement (or 
+#   feat)
 
 ---
 
@@ -46,17 +63,6 @@ skills: Choose three skills from Arcana, Deception, Insight, Intimidation, Inves
 | 20th | +5 | True Judgement | 11 | 4 | 3 | 3 | 3 | 2 |
 
 </div>
-
-
-#### Equipment
-You start with the following equipment, in addition to the equipment granted by your background:
-- *(a)* any martial weapon or *(b)* two simple weapons
-- *(a)* a shield or *(b)* a hand crossbow and 20 bolts
-- *(a)* interrogator's tools or *(b)* thieves' tools
-- *(a)* a explorer's pack or *(b)* a priest's pack
-- a leather armor and a holy symbol
-
-\page
 
 ### Fighting style
 At 1st level, you adopt a style of fighting as your specialty. Choose one of the options in the Fighter class description. In addition, the Blessed Warrior style is also added to the list of style options available to you.
@@ -148,11 +154,6 @@ A creature so judged cannot be affected by this ability again for 1 year after t
 <div style='margin-top:40px'></div>
 
 
-> ##### Multiclassing
->
-> **Prerequisites**. To qualify for multiclassing into the inquisitor class, you must meet these prerequisites: Wisdom 13
->
->**Proficiencies**. When you multiclass into the inquisitor class, you gain the following proficiencies: light armor, shield, one skill from the inquisitor skill list
 
 ```
 ```

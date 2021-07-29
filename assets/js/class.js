@@ -165,10 +165,19 @@ $(document).ready(function () {
       archetype.removeClass('hidden');
     });    
 
-    ///////////////////////////
-    // Initialize tooltip
+    ////////////////////////////////////////
+    // Initialize tooltip and its functions
     $('[data-toggle="tooltip"]').tooltip();
-    
+
+    $('.spellName').on('click', function () {
+      var temp_input = document.createElement("textarea");
+      document.body.appendChild(temp_input);
+      temp_input.value = $(this).data('original-title');
+      temp_input.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp_input);
+    });
+
 });
 
 

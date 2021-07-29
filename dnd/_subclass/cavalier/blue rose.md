@@ -32,6 +32,8 @@ level:
     order: 18th
     features: <>Challenge, Shield of Blades
 
+# In feature desc, you can use a spell name between 2 <spell> tags, 
+#   to create a spell tooltip
 features:
   - name: Challenge
     lvl: 2  
@@ -45,7 +47,7 @@ features:
     desc: |
       You gain proficiency in the History skill.
 
-      Additionally, whenever you make a *Charisma* check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.
+      Additionally, whenever you make a Charisma check to mediate a dispute between two parties that do not include you, your proficiency bonus is doubled if it applies to the check.
 
   - name: Flat of the Blade
     lvl: 7
