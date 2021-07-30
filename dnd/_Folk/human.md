@@ -1,0 +1,60 @@
+---
+title: Human 
+
+image: /assets/images/humans.png
+desc: |
+    In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something to prove to the elder races, and that’s why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.
+
+    ### A Broad Spectrum
+    With their penchant for migration and conquest, humans are more physically diverse than other common races. There is no typical human. An individual stands from 5 feet to a little over 6 feet tall and weighs from 125 to 250 pounds. Human skin shades range from nearly black to very pale, and hair colors from black to white (curly, kinky, or straight); males might sport facial hair that is sparse or thick. Humans reach adulthood in their late teens and rarely live even a single century.
+
+    ### Variety in All Things
+    Humans are the most adaptable and ambitious people among the common races. They have widely varying tastes, morals, and customs in the many different lands where they have settled. When they settle, though, they stay: they build cities to last for the ages, and great kingdoms that can persist for long centuries. An individual human might have a relatively short life span, but a human nation or culture preserves traditions with origins far beyond the reach of any single human’s memory. They live fully in the present—making them well suited to the adventuring life—but also plan for the future, striving to leave a lasting legacy. Individually and as a group, humans are adaptable opportunists, and they stay alert to changing political and social dynamics.
+
+    ### Exemplars of Ambition
+    Humans who seek adventure are the most daring and ambitious members of a daring and ambitious race. They seek to earn glory in the eyes of their fellows by amassing power, wealth and fame. More than other people, humans champion causes rather than territories or groups.
+
+    ### Human Names
+    Having so much more variety than other cultures, humans as a whole have no typical names. Most parents give names that are linked to their region’s culture or to the naming traditions of their ancestors.
+
+age: Humans reach adulthood in their late teens and live less than a century.
+
+alignment: Humans tend toward no particular alignment. The best and the worst are found among them.
+
+size: Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium.
+
+speed: Your base walking speed is 30 feet.
+languages: |
+    You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
+
+features:
+  - name: Determination
+    desc: Humans are filled with determination. If you fail an attack roll, ability check, or saving throw, you can reroll one d20. You must keep the new result. After you use Human Determination, you can't use it again until you complete a short or long rest.
+  - name: Versatile
+    desc: You gain proficiency in one skill or tool proficiency of your choice.
+  - name: Talent
+    desc: Human have distinct talents that sets them apart from other races. Select a talent listed on the Human Talents list below. Once this choice is made, it cannot be changed.
+
+options:
+  - name: Talents
+    list: talent
+
+talent:
+  - name: Clever
+    desc: |
+        You are full of surprises, sometimes gaining sparks of inspiration when they’re least expected.
+
+        Once per game session, you can ask the DM for a hint and he must either answer truthfully, in much the same way as he would the spell augury, or grant you inspiration.
+  - name: Encouraging
+    desc: |
+        Humans do not give up easily, nor do they let their companions behind.
+
+        During a short rest, you may speak for 1 minute to encourage your allies. The allies gain advantage on one die roll made during the rest, for instance a saving throw, a craft check or even when rolling the hp they regain when spending a hit die.
+  - name: Hardy
+    desc: |
+        You’ve always been healthy, and you can take a punch better than anyone you know.
+
+        * Your maximum hit points increase by 3.
+        * When you recover hit points using Hit Dice during a short rest, you can reroll a die once and you must take the new roll. You can do this during every short rest, but can only reroll one die per short rest.
+
+---

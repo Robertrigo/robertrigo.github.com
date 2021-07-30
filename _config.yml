@@ -14,6 +14,8 @@ collections:
     output: true
   subclass:
     output: false
+  Folk:
+    output: true
     
 defaults:
   - scope:
@@ -21,6 +23,11 @@ defaults:
       type: "Classes"
     values:
       layout: "class"
+  - scope:
+      path: ""
+      type: "Folk"
+    values:
+      layout: "folk"
   - scope:
       path: ""
     values:

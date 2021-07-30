@@ -69,6 +69,6 @@ features:
   - name: Discern Lies
     lvl: 18
     desc: |
-      At 18th level, you can tell if people are lying around you. As an action you can create a *zone of truth* around you. The save DC is equal to the result of your Insight skill check. Once you use this ability, you can't use it again until you finish a long rest.
+      At 18th level, you can tell if people are lying around you. As an action you can create a <spell>Zone of Truth<spell> around you. The save DC is equal to the result of your Insight skill check. Once you use this ability, you can't use it again until you finish a long rest.
 
 ---
