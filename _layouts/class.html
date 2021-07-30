@@ -169,7 +169,9 @@ layout: default
   </div>
   
   <!-- This part is shown when class is first selected -->
-  <div id="0" class="archetype show"><h2>{{ page.archetype }}</h2>
+  <div id="0" class="archetype show">
+    <img src="{{ page.image }}" style="float:left; width:40%;">
+    <h2>{{ page.archetype }}</h2>
     This class has the following archetypes:
     {% for sub in subs %}
       <h4>{{ sub.name }}</h4>

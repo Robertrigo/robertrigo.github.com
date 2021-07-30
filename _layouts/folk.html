@@ -1,20 +1,25 @@
 ---
 layout: default
 ---
+<head>
+  <script type="text/javascript" src="/assets/js/folk.js"></script>
+</head>
+
 <body>
 <div class="row">
 <div class="col-sm-6 leftCol">
     
   <h1 id="mainTitle">{{ page.title }}</h1>
-		<span class="contentLink" id="traits">{{ page.title }} traits</span><br>
-		<span class="contentLink" id="options">Class options</span><br>
-
-		{% for option in page.options %}
-			<span class="contentLink" id="{{ option.name }}">{{ option.name }}</span><br>
-		{% endfor %}
+		<ul>
+			<li><span class="contentLink" data-link="traits">{{ page.title }} traits</span></li>
+			{% for option in page.options %}
+				<li><span class="contentLink" data-link="{{ option.name }}">{{ option.name }}</span></li>
+			{% endfor %}
+			<li><span class="contentLink" data-link="classOptions">Class options</span></li>
+	</ul>	
 
 	<p class="phb">
-		<img src="{{ page.image }}" style="float:right; width:50%;">
+		<img src="{{ page.image }}" style="float:right; width:40%;">
 		{{ page.desc | markdownify }}
 	</p>
 	
@@ -24,100 +29,147 @@ layout: default
 <!-- Second (right) part of the page -->
 </div><div class="col-sm-6">    
 	
-	<h2>Races in the World</h2>
-	Every character belongs to a race, one of the many intelligent humanoid species in the world. The word “race” in the context of our D&D game refers to an intelligent, self-aware species whose members can be considered characters rather than simple monsters. The word race can be used interchangeably with species, or even the old Jotun word "Släkte". 
+	<!-- Racial traits -->
+	<div class="folkRight hidden" id="traits">
+		<h2>{{ page.title }} Traits</h2>
+		{{ page.traitDesc | markdownify }}
 
-	<h3>Intelligent Design</h3>
-	On thing to keep in mind is that the races are completely different species, not at all related to each other. In fact, forget (almost) everything you know about evolution. The different races have not been created through evolution, but created by one or a group of gods. However, for some of the races this happened a long time ago, while others were created mutable, which means that even though they might not have been created through evolution, some races clearly have signs of evolutionary selection. These evolutionary differences are called subraces.
+		{% for trait in page.traits %}
+			<h4>{{ trait.name }}</h4>
+			{{ trait.desc }}
+		{% endfor %}
+	</div>
 
-	<h3>Selecting a Race</h3>
-	<p>While not all races are appropriate for player characters, many of them are; any creature with a racial traits entry is a member of a potentially playable race, provided that your GM approves it.
-	<p>Your choice of race contributes to your character's identity in an important way, by establishing fundamental qualities that exist throughout your character's adventuring career. It establishes a general appearance, racial traits, such as special senses, and natural talents such as skills, or the ability to use minor spells.
 
-	<img class="center-block"
+	<!-- Racial options -->
+	{% for option in page.options %}
+		<div class="folkRight hidden" id="{{ option.name }}">
+			<h2>{{ option.name }}</h2>
+			{{ option.desc | markdownify }}
+			
+			{% assign optionName = option.list %}
+			{% for trait in page[optionName] %}
+				<h4>{{ trait.name }}</h4>
+				{{ trait.desc | markdownify }}
+			{% endfor %}
+		</div>
+	
+	{% endfor %}
+
+	<!-- Class options -->
+	<div class="folkRight hidden" id="classOptions">
+		<h2>Class Options</h2>
+		{{ page.classOptionDesc | markdownify }}
+
+		{% for class in page.classOptions %}
+			<h4>{{ class.class }}</h4>
+			<a data-toggle="tooltip" title="Go to {{ class.class }} page">
+				<a href="{{ site.url }}/Classes/{{ class.class | downcase }}.html?folk={{ page.title }}" class="classLink">
+					<span class="glyphicon glyphicon-circle-arrow-right pull-right classLink"></span>
+				</a>
+			</a>
+			{{ class.desc | markdownify }}
+		{% endfor %}
+	</div>
+
+
+<!-- Start text shown in rigth column -->
+	<div class="folkRight" id="main">
+		<h2>Races in the World</h2>
+		Every character belongs to a race, one of the many intelligent humanoid species in the world. The word “race” in the context of our D&D game refers to an intelligent, self-aware species whose members can be considered characters rather than simple monsters. The word race can be used interchangeably with species, or even the old Jotun word "Släkte". 
+
+		<h3>Intelligent Design</h3>
+		On thing to keep in mind is that the races are completely different species, not at all related to each other. In fact, forget (almost) everything you know about evolution. The different races have not been created through evolution, but created by one or a group of gods. However, for some of the races this happened a long time ago, while others were created mutable, which means that even though they might not have been created through evolution, some races clearly have signs of evolutionary selection. These evolutionary differences are called subraces.
+
+		<h3>Selecting a Race</h3>
+		<p>While not all races are appropriate for player characters, many of them are; any creature with a racial traits entry is a member of a potentially playable race, provided that your GM approves it.
+		<p>Your choice of race contributes to your character's identity in an important way, by establishing fundamental qualities that exist throughout your character's adventuring career. It establishes a general appearance, racial traits, such as special senses, and natural talents such as skills, or the ability to use minor spells.
+
+		<img class="center-block"
+			src='https://fracturedroll.com/wp-content/uploads/2019/01/Sword-divider.png' />
+
+
+		<h3>Am I a Slave to my Nature?</h3>
+		<p>Or to put it in a different way -
+		<p>The creator of a race made it to be in a certain way and to act in a certain way. If a race was created by a violent and evil god, are all members of that race doomed to always be violent and evil?
+		<p>The short answer is yes. 
+		<p>The longer answer is that the races were created as servitors, slaves even, to carry out their creator's whim in the world. As long as a god keeps their creations in a tight leash, there is no escaping their nature. However, many deities have long since let their creations loose. 
+
+		<h4>End of Control</h4>
+		<p>This started with the creation of Humanity. They were a collaboration between a large number of gods, where all contributed a little bit. With so many gods involved, the decision of who would control what aspect of humanity took a long time, with every god wanting as much power as possible. While the quarrel went on, humans just lived their lives, unsupervised by gods, and turned out to be very successful without the direct supervision of gods. They slowly became the most prolific of all races, spreading to all corners of  the world.
+		<p>Recognizing this success, most gods stopped fearing that their creations would not survive without their managing. It has since then become clear that races who have been allowed to manage themselves have been more successful that the races where their creator kept total control.
+
+		<h4>What does this mean?</h4>
+		<p>One thing in common for the playable races is that they are not in direct control of their creators anymore. This does not mean that they are completely free of the nature they were originally created with. Their culture is a reflection of their nature and for many this is the only way they know how to be. However, they can change, even if it might not always be easy.
+
+		<h3>The Races</h3>
+		<p>The races can be divided in many ways. The most common being the division between the "Old" races, the "Visitor" races and the "New" races.
+
+		<h4>The Old Races</h4>
+		<p>The old races are the ones that were here from the beginning. Made by the first gods to populate this world, they are often very single-minded in their ways, having been this way for countless millenia. 
+		<ul><li>
+			<strong>Dragons</strong> are one of the original races, together with the smaller servants that were created at the same time, <em><strong>Dragonborn</strong></em> and <em><strong>Kobolds</strong></em>. While dragons are very rare now, different types of dragonborn and kobolds have adapted to thrive in some parts of the world.
+		</li><li>
+			<strong>Dwarves</strong> were created by stone, and as the rock they have not changed much at all since their creation.
+		</li><li>
+			<strong>Orcs</strong> were created to be a brutish, aggressive and savage race, a race that only knew conquering and breeding. They are also one of the races most prone to evolutionary change, which has given rise to many other subraces, like goblins, hobgoblins and half-orcs.
+		</li><li>
+			<strong>Lizardfolk</strong> settled in the swamps and waterways of this world, and have kept their rather primitive ways unchanged since the beginning.
+		</li><li>
+			<strong>Other</strong> old races do exist, even though countless have been extinct. The ones that remain are very few in number, lacking in success often because they refuse change. Some scholars count, among others aboleth, harpies, has and kuo-toa to the old races.
+		</li></ul>
+
+		<h4>Visitor races</h4>
+		<p>The visitor races are races that are not native to our world. In fact they are not even native to our dimension, but have their origin somewhere else. Many creatures have come to our world from strange dimensions, but there are not many that have adapted to the degree that they no longer can survive in their original dimension.
+		<p>The visitor races have existed on this world almost as long as the old races.
+		<ul><li>
+			<strong>Birdfolk</strong> hail from the boundless vistas of the Elemental Plane of Air. How they looked originally is unknown, but the race they have evolved into are called Aarakocra. In addition there is a cursed offshot of the birdfolk race, called <em><strong>Kenku</strong></em>.
+		</li><li>
+			<strong>Elves</strong> were the first visitors that have been here the longest. They have connected well to the nature of this world, and can no longer live in the Feywild.
+		</li><li>
+			<strong>Forest gnomes</strong> are a small race, both in size and in numbers, who moved here from the Feywild. They uprooted their original completely, moving every single individual to here.
+		</li><li>
+			<strong>Selkies</strong> are a shapechanging fey race, which has adapted to a very specific niche in our world.
+		</li></ul>
+
+		<p>In addition to the races above, all Fey are originally from the Feywild, but the rest are not suitable as player characters as they are too different in shape, mindset or have other limitations that does not allow for them to roam freely.
+
+		<h4>The New Races</h4>
+		<p>What races in this group have in common is both that they were created much later than the old races, but also that there was a shift in how they were created. The new races were not imprinted as strongly on their creators, meaning they are not as locked into a certain way of being. This freedom makes the new races more versatile and adaptable, which is the main reason to their success.
+		<ul><li>
+			<strong>Humans</strong> have spread all through the world and their creation ushered in a new era, where the gods loosened their restrictions on their creations.
+		</li><li>
+			<strong>Halflings</strong> were the first attempt to try to recreate the success of humans. 
+		</li><li>
+			<strong>Rock gnomes</strong>, or Tinker gnomes as they are also called, have a strange origin. They were created as an elaborate prank by a group of trickster gods, using stolen creation magic from other gods and applying it on a simulacrum of the forest gnomes. The forst gnomes were chosen because no other deities had claimed them and their likeness. Still no one knows if the prank in done or not.
+		</li></ul>
+
+		<h4>The Awakened Races</h4>
+		<p>The main differences of the awakened races are that they were not created by gods and that they were never intended to become a race. Instead they started out as the result of a curse, or a creation of temporary servants. But one way or another they proved viable and managed to survive long enough to create a legacy.
+		<p>These races are often very small in numbers and not very spread, but have shown that they have a place in this world and will not go away easily.
+		<ul><li>
+			<strong>Beastfolk</strong> is the name for a very diverse group of races that are a combination between animal and human. Each type has its own origin and most involve some kind of curse or experimentation.
+		</li><li>
+			<strong>Florans</strong> are awakened plants, originally the result of elven magic combined with druidic forces of nature.
+		</li><li>
+			<strong>Shifters</strong> are the result of a lycanthropic heritage, where the animalistic features are inherited, but not the curse. Many scholars argue that shifters are a curse, not a race, as they can breed with humans, causing any offspring to be human.
+		</li></ul>
+
+		<h4>Else-touched</h4>
+		The else-touched are not really races, but individuals that have been changed enough that they cannot be considered belonging to the race of their parents. What they do have in common is that only humans seem to be susceptible to becoming else-touched.
+		<ul><li>
+			<strong>Awakened</strong> are the collective name of undead creatures that somehow regain their mind and soul that they had when alive.
+		</li><li>
+			<strong>Changelings</strong> are the offspring of humans and doppelgangers. A changeling is sterile.
+		</li><li>
+			<strong>Dhampirs</strong> are the cursed offspring of a parent infected by vampirism. They are sterile.
+		</li><li>
+			<strong>Planetouched</strong> includes the Aasimar, Genasi and Tieflings. They are individuals with human origin that show a clear heritage of a creature from a different plane. The offspring of a planetouched human most often becomes an ordinary human, but the powers might appear again a few generation later.
+		</li></ul>    
+
+		<img class="center-block"
 		src='https://fracturedroll.com/wp-content/uploads/2019/01/Sword-divider.png' />
-
-
-	<h3>Am I a Slave to my Nature?</h3>
-	<p>Or to put it in a different way -
-	<p>The creator of a race made it to be in a certain way and to act in a certain way. If a race was created by a violent and evil god, are all members of that race doomed to always be violent and evil?
-	<p>The short answer is yes. 
-	<p>The longer answer is that the races were created as servitors, slaves even, to carry out their creator's whim in the world. As long as a god keeps their creations in a tight leash, there is no escaping their nature. However, many deities have long since let their creations loose. 
-
-	<h4>End of Control</h4>
-	<p>This started with the creation of Humanity. They were a collaboration between a large number of gods, where all contributed a little bit. With so many gods involved, the decision of who would control what aspect of humanity took a long time, with every god wanting as much power as possible. While the quarrel went on, humans just lived their lives, unsupervised by gods, and turned out to be very successful without the direct supervision of gods. They slowly became the most prolific of all races, spreading to all corners of  the world.
-	<p>Recognizing this success, most gods stopped fearing that their creations would not survive without their managing. It has since then become clear that races who have been allowed to manage themselves have been more successful that the races where their creator kept total control.
-
-	<h4>What does this mean?</h4>
-	<p>One thing in common for the playable races is that they are not in direct control of their creators anymore. This does not mean that they are completely free of the nature they were originally created with. Their culture is a reflection of their nature and for many this is the only way they know how to be. However, they can change, even if it might not always be easy.
-
-	<h3>The Races</h3>
-	<p>The races can be divided in many ways. The most common being the division between the "Old" races, the "Visitor" races and the "New" races.
-
-	<h4>The Old Races</h4>
-	<p>The old races are the ones that were here from the beginning. Made by the first gods to populate this world, they are often very single-minded in their ways, having been this way for countless millenia. 
-	<ul><li>
-		<strong>Dragons</strong> are one of the original races, together with the smaller servants that were created at the same time, <em><strong>Dragonborn</strong></em> and <em><strong>Kobolds</strong></em>. While dragons are very rare now, different types of dragonborn and kobolds have adapted to thrive in some parts of the world.
-	</li><li>
-		<strong>Dwarves</strong> were created by stone, and as the rock they have not changed much at all since their creation.
-	</li><li>
-		<strong>Orcs</strong> were created to be a brutish, aggressive and savage race, a race that only knew conquering and breeding. They are also one of the races most prone to evolutionary change, which has given rise to many other subraces, like goblins, hobgoblins and half-orcs.
-	</li><li>
-		<strong>Lizardfolk</strong> settled in the swamps and waterways of this world, and have kept their rather primitive ways unchanged since the beginning.
-	</li><li>
-		<strong>Other</strong> old races do exist, even though countless have been extinct. The ones that remain are very few in number, lacking in success often because they refuse change. Some scholars count, among others aboleth, harpies, has and kuo-toa to the old races.
-	</li></ul>
-
-	<h4>Visitor races</h4>
-	<p>The visitor races are races that are not native to our world. In fact they are not even native to our dimension, but have their origin somewhere else. Many creatures have come to our world from strange dimensions, but there are not many that have adapted to the degree that they no longer can survive in their original dimension.
-	<p>The visitor races have existed on this world almost as long as the old races.
-	<ul><li>
-		<strong>Birdfolk</strong> hail from the boundless vistas of the Elemental Plane of Air. How they looked originally is unknown, but the race they have evolved into are called Aarakocra. In addition there is a cursed offshot of the birdfolk race, called <em><strong>Kenku</strong></em>.
-	</li><li>
-		<strong>Elves</strong> were the first visitors that have been here the longest. They have connected well to the nature of this world, and can no longer live in the Feywild.
-	</li><li>
-		<strong>Forest gnomes</strong> are a small race, both in size and in numbers, who moved here from the Feywild. They uprooted their original completely, moving every single individual to here.
-	</li><li>
-		<strong>Selkies</strong> are a shapechanging fey race, which has adapted to a very specific niche in our world.
-	</li></ul>
-
-	<p>In addition to the races above, all Fey are originally from the Feywild, but the rest are not suitable as player characters as they are too different in shape, mindset or have other limitations that does not allow for them to roam freely.
-
-	<h4>The New Races</h4>
-	<p>What races in this group have in common is both that they were created much later than the old races, but also that there was a shift in how they were created. The new races were not imprinted as strongly on their creators, meaning they are not as locked into a certain way of being. This freedom makes the new races more versatile and adaptable, which is the main reason to their success.
-	<ul><li>
-		<strong>Humans</strong> have spread all through the world and their creation ushered in a new era, where the gods loosened their restrictions on their creations.
-	</li><li>
-		<strong>Halflings</strong> were the first attempt to try to recreate the success of humans. 
-	</li><li>
-		<strong>Rock gnomes</strong>, or Tinker gnomes as they are also called, have a strange origin. They were created as an elaborate prank by a group of trickster gods, using stolen creation magic from other gods and applying it on a simulacrum of the forest gnomes. The forst gnomes were chosen because no other deities had claimed them and their likeness. Still no one knows if the prank in done or not.
-	</li></ul>
-
-	<h4>The Awakened Races</h4>
-	<p>The main differences of the awakened races are that they were not created by gods and that they were never intended to become a race. Instead they started out as the result of a curse, or a creation of temporary servants. But one way or another they proved viable and managed to survive long enough to create a legacy.
-	<p>These races are often very small in numbers and not very spread, but have shown that they have a place in this world and will not go away easily.
-	<ul><li>
-		<strong>Beastfolk</strong> is the name for a very diverse group of races that are a combination between animal and human. Each type has its own origin and most involve some kind of curse or experimentation.
-	</li><li>
-		<strong>Florans</strong> are awakened plants, originally the result of elven magic combined with druidic forces of nature.
-	</li><li>
-		<strong>Shifters</strong> are the result of a lycanthropic heritage, where the animalistic features are inherited, but not the curse. Many scholars argue that shifters are a curse, not a race, as they can breed with humans, causing any offspring to be human.
-	</li></ul>
-
-	<h4>Else-touched</h4>
-	The else-touched are not really races, but individuals that have been changed enough that they cannot be considered belonging to the race of their parents. What they do have in common is that only humans seem to be susceptible to becoming else-touched.
-	<ul><li>
-		<strong>Awakened</strong> are the collective name of undead creatures that somehow regain their mind and soul that they had when alive.
-	</li><li>
-		<strong>Changelings</strong> are the offspring of humans and doppelgangers. A changeling is sterile.
-	</li><li>
-		<strong>Dhampirs</strong> are the cursed offspring of a parent infected by vampirism. They are sterile.
-	</li><li>
-		<strong>Planetouched</strong> includes the Aasimar, Genasi and Tieflings. They are individuals with human origin that show a clear heritage of a creature from a different plane. The offspring of a planetouched human most often becomes an ordinary human, but the powers might appear again a few generation later.
-	</li></ul>    
-
-	<img class="center-block"
-	src='https://fracturedroll.com/wp-content/uploads/2019/01/Sword-divider.png' />
+	</div>
 
 </div></div>
 </body>

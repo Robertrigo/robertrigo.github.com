@@ -1,6 +1,5 @@
 ---
 title: Human 
-
 image: /assets/images/humans.png
 desc: |
     In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something to prove to the elder races, and that’s why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.
@@ -17,27 +16,31 @@ desc: |
     ### Human Names
     Having so much more variety than other cultures, humans as a whole have no typical names. Most parents give names that are linked to their region’s culture or to the naming traditions of their ancestors.
 
-age: Humans reach adulthood in their late teens and live less than a century.
+traitDesc: It’s hard to make generalizations about humans, but your human character has the following traits.
 
-alignment: Humans tend toward no particular alignment. The best and the worst are found among them.
-
-size: Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium.
-
-speed: Your base walking speed is 30 feet.
-languages: |
-    You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
-
-features:
+traits:
+  - name: Age
+    desc: Humans reach adulthood in their late teens and live less than a century.
+  - name: Alignment
+    desc: Humans tend toward no particular alignment. The best and the worst are found among them.
+  - name: Size
+    desc: Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium.
+  - name: Speed
+    desc: Your base walking speed is 30 feet.
+  - name: Languages
+    desc: |
+        You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
   - name: Determination
     desc: Humans are filled with determination. If you fail an attack roll, ability check, or saving throw, you can reroll one d20. You must keep the new result. After you use Human Determination, you can't use it again until you complete a short or long rest.
   - name: Versatile
     desc: You gain proficiency in one skill or tool proficiency of your choice.
   - name: Talent
-    desc: Human have distinct talents that sets them apart from other races. Select a talent listed on the Human Talents list below. Once this choice is made, it cannot be changed.
+    desc: Human have distinct talents that sets them apart from other races. Select a talent listed on the Human Talents. Once this choice is made, it cannot be changed.
 
 options:
   - name: Talents
     list: talent
+    desc: Humans are adaptive, versatile and ambitious, and most humans are good at making the most of their strengths. Select one of the following talents when you create your character.
 
 talent:
   - name: Clever
@@ -56,5 +59,81 @@ talent:
 
         * Your maximum hit points increase by 3.
         * When you recover hit points using Hit Dice during a short rest, you can reroll a die once and you must take the new roll. You can do this during every short rest, but can only reroll one die per short rest.
+
+classOptionDesc: |
+    Humans approach some classes a bit different compared to other races. When you select a class, it is modified as follows:
+
+classOptions:
+    - class: Alchemist
+      desc: |
+        Humans alchemists are generally much more prone to experimenting and even trying things that they are certain will fail.
+
+        Whenever the Alchemist class description mentions your Intelligence modifier, you may instead use this modifier +3 or your proficiency bonus, whichever is lower.
+    - class: Barbarian
+      desc: |
+        A human might not be as resilient and sturdy as a dwarf, orc or giant, but a human barbarian would never admit to that. Their stubborness and determination lets them keep on where others would have falled a long time ago.
+
+        You may ignore exhaustion while raging.
+    - class: Bard
+      desc: |
+        Even though the humans are a comparatively young race, many musical and artistic masterpieces were made by them, as humans have a spark of creativity stronger than other races.
+
+        Whenever the Bard class description mentions your Charisma modifier, you may instead use this modifier +3 or your proficiency bonus, whichever is lower.
+    - class: Cavalier
+      desc: |
+        The epitome of civilized humanity's obsession with heroic nobility. Any human cavalier would tell you that your skill and training matter more than the strength of your sword arm.
+
+        Whenever the Cavalier class description mentions your Strength or Charisma modifier, you may instead use that modifier +3 or your proficiency bonus, whichever is lower. This also applies to attack and damage rolls.
+    - class: Cleric
+      desc: |
+
+    - class: Cursed
+      desc: |
+
+    - class: Druid
+      desc: |
+
+    - class: Feyblood
+      desc: |
+
+    - class: Fighter
+      desc: |
+
+    - class: Inquisitor
+      desc: |
+
+    - class: Monk
+      desc: |
+
+    - class: Monster Hunter
+      desc: |
+
+    - class: Paladin
+      desc: |
+
+    - class: Professional
+      desc: |
+
+    - class: Ranger
+      desc: |
+
+    - class: Rogue
+      desc: |
+      
+    - class: Sorcerer
+      desc: |
+
+    - class: Swashbuckler
+      desc: |
+      
+    - class: Warlock
+      desc: |
+
+    - class: Warmage
+      desc: |
+
+    - class: Wizard
+      desc: |
+
 
 ---

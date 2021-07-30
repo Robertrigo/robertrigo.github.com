@@ -2,6 +2,7 @@
 title: Cavalier
 def: a cavalier
 archetype: Cavalier Orders
+image: /assets/images/cavalier.png
 
 desc: |
   While many warriors strive to perfect their art, spending all of their time honing their skill at martial arms, others spend as much effort dedicating themselves to a cause. These warriors, known as cavaliers, swear themselves to a purpose, serving it above all else. The archetypal cavalier excels at mounted combat, and are often found charging across a battlefield. Usually born to nobility and raised in a royal court, a cavalier is equally at home leading a cavalry charge or exchanging witty repartee at a state dinner. The cavalier's true power comes from the conviction of his ideals, the oaths that he swears, and the challenges he makes.

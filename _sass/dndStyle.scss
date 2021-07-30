@@ -83,6 +83,17 @@ table {
 
 .classTable tr:nth-child(odd) td {background-color: #b5e2f1;}  
 
+.contentLink {
+  font-style: italic;
+  color:darkblue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.classLink {
+  color: black;
+}
+
 .dropdown-toggle {
   color: floralwhite !important;
 }
@@ -157,7 +168,6 @@ table {
   background-color: #b5e2f1;
   border: 1px solid;
 }
-
 
 .line-clamp {
   overflow: hidden;
